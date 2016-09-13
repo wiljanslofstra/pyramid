@@ -3,11 +3,7 @@ import { Provider } from 'react-redux';
 import Blocks from './BlocksContainer';
 
 class AppContainer extends Component {
-  static propTypes = {
-    store: PropTypes.object.isRequired,
-  }
-
-  render () {
+  render() {
     const { store } = this.props;
 
     return (
@@ -16,6 +12,10 @@ class AppContainer extends Component {
       </Provider>
     );
   }
+}
+
+AppContainer.propTypes = {
+  store: PropTypes.object.isRequired, // eslint-disable-line
 };
 
-export default AppContainer
+export default AppContainer;

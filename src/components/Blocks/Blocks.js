@@ -16,4 +16,11 @@ class Blocks extends Component {
   }
 }
 
+Blocks.propTypes = {
+  moveDown: PropTypes.func,
+  moveUp: PropTypes.func,
+  addBlock: PropTypes.func,
+  removeBlock: PropTypes.func,
+};
+
 export default Blocks;

@@ -11,28 +11,28 @@ export function moveUp(index) {
     type: MOVE_UP,
     payload: index,
   };
-};
+}
 
 export function moveDown(index) {
   return {
     type: MOVE_DOWN,
     payload: index,
   };
-};
+}
 
 export function addBlock(type) {
   return {
     type: ADD_BLOCK,
     payload: type,
   };
-};
+}
 
 export function removeBlock(index) {
   return {
     type: REMOVE_BLOCK,
     payload: index,
   };
-};
+}
 
 const mapDispatchToProps = {
   moveUp,
@@ -41,7 +41,7 @@ const mapDispatchToProps = {
   removeBlock,
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   blocks: state.blocks,
 });
 

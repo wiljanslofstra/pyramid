@@ -1,15 +1,15 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 
 import Blocks from '../components/Blocks';
 
 class BlocksContainer extends Component {
-  render () {
+  render() {
     return (
       <div>
         <Blocks />
       </div>
     );
   }
-};
+}
 
-export default BlocksContainer
+export default BlocksContainer;
