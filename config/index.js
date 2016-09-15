@@ -105,9 +105,9 @@ config.compiler_vendors = config.compiler_vendors
 // ------------------------------------
 // Utilities
 // ------------------------------------
-function base(...argus) {
-  const args = [config.path_base].concat(argus);
-  return path(...args);
+function base() {
+  const args = [config.path_base].concat([].slice.call(arguments));
+  return path.resolve.apply(path, args);
 }
 
 config.utils_paths = {
