@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Provider } from 'react-redux';
-import Blocks from './BlocksContainer';
+import Blocks from '../components/Blocks';
 
 class AppContainer extends Component {
   render() {

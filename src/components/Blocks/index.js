@@ -28,6 +28,7 @@ export function addBlock(type) {
 }
 
 export function removeBlock(index) {
+  console.log(index);
   return {
     type: REMOVE_BLOCK,
     payload: index,
@@ -42,7 +43,7 @@ const mapDispatchToProps = {
 };
 
 const mapStateToProps = state => ({
-  blocks: state.blocks,
+  blocks: state.blocks.items,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Blocks);

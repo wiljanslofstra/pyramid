@@ -1,5 +1,12 @@
 const initialState = {
-  items: [],
+  items: [{
+    title: 'Default text',
+    icon: 'text.svg',
+    type: 'defaultText',
+    data: {},
+    designOptions: {},
+    options: {},
+  }],
 };
 
 const blocksReducers = (state = initialState, action) => {
