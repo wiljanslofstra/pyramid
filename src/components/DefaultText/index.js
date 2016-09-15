@@ -5,10 +5,8 @@ class DefaultText extends Component {
   render() {
     const props = this.props;
 
-    console.log(props.index);
-
     return (
-      <div>
+      <div className="PyramidBlock">
         <BlockControl
           title={props.title}
           icon={props.icon}
@@ -18,7 +16,7 @@ class DefaultText extends Component {
           index={props.index}
         />
 
-        <div>
+        <div className="PyramidBlock__Content">
           Block Content
         </div>
       </div>
