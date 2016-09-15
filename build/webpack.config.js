@@ -109,56 +109,6 @@ webpackConfig.module.loaders = [{
   loader: 'json',
 }];
 
-// ------------------------------------
-// Style Loaders
-// ------------------------------------
-// We use cssnano with the postcss loader, so we tell
-// css-loader not to duplicate minimization.
-const BASE_CSS_LOADER = 'css?sourceMap&-minimize';
-
-webpackConfig.module.loaders.push({
-  test: /\.scss$/,
-  exclude: null,
-  loaders: [
-    'style',
-    BASE_CSS_LOADER,
-    'postcss',
-    'sass?sourceMap',
-  ],
-});
-
-webpackConfig.module.loaders.push({
-  test: /\.css$/,
-  exclude: null,
-  loaders: [
-    'style',
-    BASE_CSS_LOADER,
-    'postcss',
-  ],
-});
-
-webpackConfig.sassLoader = {
-  includePaths: paths.client('styles'),
-};
-
-webpackConfig.postcss = [
-  cssnano({
-    autoprefixer: {
-      add: true,
-      remove: true,
-      browsers: ['last 2 versions'],
-    },
-    discardComments: {
-      removeAll: true,
-    },
-    discardUnused: false,
-    mergeIdents: false,
-    reduceIdents: false,
-    safe: true,
-    sourcemap: true,
-  }),
-];
-
 // File loaders
 /* eslint-disable */
 webpackConfig.module.loaders.push(

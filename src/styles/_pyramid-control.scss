@@ -1,0 +1,26 @@
+.PyramidControl {
+  @include clearfix;
+  background: #fff;
+  border-radius: $pyramid-border-radius $pyramid-border-radius 0 0;
+}
+  .PyramidControl__Controls {
+    float: right;
+    font-size: 0;
+  }
+    .PyramidControl__Control {
+      display: inline-block;
+      font-size: 1rem;
+      padding: 1rem;
+      border-left: 1px solid $pyramid-base-color;
+      cursor: pointer;
+      user-select: none;
+
+      &:hover {
+        background-color: #fbfbfb;
+      }
+    }
+
+  .PyramidControl__Title {
+    padding: 1rem;
+    float: left;
+  }
