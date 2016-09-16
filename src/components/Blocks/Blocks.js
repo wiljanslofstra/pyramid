@@ -7,9 +7,8 @@ const blocksList = {
 };
 
 class Blocks extends Component {
-  render() {
-    // Create an array of React components for every item in the state
-    const allBlocks = this.props.blocks.map((block, i) => {
+  getAllBlocks() {
+    return this.props.blocks.map((block, i) => {
       // Get the type of current block
       const type = block.type;
 
@@ -21,12 +20,15 @@ class Blocks extends Component {
         return (
           <Block {...this.props} {...block} index={i} key={i} />
         );
-      } else {
-        // Throw an error when the block type is not available, we could ignore it.
-        // But the consequence could be data loss
-        throw new Error('This block type is not defined, at it to the configuration to continue.');
       }
+
+      throw new Error('This block type is not defined, at it to the configuration to continue.');
     });
+  }
+
+  render() {
+    // Create an array of React components for every item in the state
+    const allBlocks = this.getAllBlocks.call(this);
 
     return (
       <div className="PyramidContainer">
@@ -37,10 +39,7 @@ class Blocks extends Component {
 }
 
 Blocks.propTypes = {
-  moveDown: PropTypes.func,
-  moveUp: PropTypes.func,
-  addBlock: PropTypes.func,
-  removeBlock: PropTypes.func,
+  blocks: PropTypes.array,
 };
 
 export default Blocks;

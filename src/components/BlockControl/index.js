@@ -1,27 +1,36 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 
 function BlockControl({ title, icon, moveUp, moveDown, removeBlock, index }) {
   return (
     <div className="PyramidControl">
       <div className="PyramidControl__Title">
-        {title}
+        {icon} {title}
       </div>
 
       <div className="PyramidControl__Controls">
-        <a className="PyramidControl__Control" onClick={() => removeBlock(index)}>
+        <button className="PyramidControl__Control" onClick={() => removeBlock(index)}>
           Remove
-        </a>
+        </button>
 
-        <a className="PyramidControl__Control" onClick={() => moveUp(index)}>
+        <button className="PyramidControl__Control" onClick={() => moveUp(index)}>
           Move up
-        </a>
+        </button>
 
-        <a className="PyramidControl__Control" onClick={() => moveDown(index)}>
+        <button className="PyramidControl__Control" onClick={() => moveDown(index)}>
           Move down
-        </a>
+        </button>
       </div>
     </div>
   );
 }
+
+BlockControl.propTypes = {
+  moveDown: PropTypes.func.isRequired,
+  moveUp: PropTypes.func.isRequired,
+  removeBlock: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  icon: PropTypes.string,
+  index: PropTypes.number.isRequired,
+};
 
 export default BlockControl;

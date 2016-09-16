@@ -28,7 +28,6 @@ export function addBlock(type) {
 }
 
 export function removeBlock(index) {
-  console.log(index);
   return {
     type: REMOVE_BLOCK,
     payload: index,

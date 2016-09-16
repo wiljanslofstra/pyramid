@@ -20,8 +20,8 @@ const initialState = {
 };
 
 const blocksReducers = (state = initialState, action) => {
-  switch(action.type) {
-    case 'MOVE_UP' :
+  switch (action.type) {
+    case 'MOVE_UP' : {
       let moveUpIndex = action.payload - 1;
 
       // Check if the destination index is not out of bounds
@@ -37,7 +37,8 @@ const blocksReducers = (state = initialState, action) => {
 
       // Return the new state
       return movedUpState;
-    case 'MOVE_DOWN' :
+    }
+    case 'MOVE_DOWN' : {
       let moveDownIndex = action.payload + 1;
 
       // Check if the destination index is not out of bounds
@@ -49,11 +50,16 @@ const blocksReducers = (state = initialState, action) => {
       const movedDownState = Object.assign({}, state);
 
       // Move the items around
-      movedDownState.items = moveInArray(movedDownState.items.slice(0), action.payload, moveDownIndex);
+      movedDownState.items = moveInArray(
+        movedDownState.items.slice(0),
+        action.payload,
+        moveDownIndex
+      );
 
       // Return the new state
       return movedDownState;
-    case 'REMOVE_BLOCK' :
+    }
+    case 'REMOVE_BLOCK' : {
       const newState = Object.assign({}, state);
       const index = action.payload;
 
@@ -63,9 +69,14 @@ const blocksReducers = (state = initialState, action) => {
         throw new Error('The index should not be less than zero');
       }
 
-      newState.items.splice(index, 1);
+      const items = newState.items.slice(0);
+
+      items.splice(index, 1);
+
+      newState.items = items;
 
       return newState;
+    }
     default:
       return state;
   }

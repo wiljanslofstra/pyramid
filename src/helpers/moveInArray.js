@@ -1,3 +1,4 @@
+/* eslint-disable */
 export default (arr, oldIndex, newIndex) => {
   if (newIndex >= arr.length) {
     var k = newIndex - arr.length;
@@ -11,3 +12,4 @@ export default (arr, oldIndex, newIndex) => {
 
   return arr;
 };
+/* eslint-enable */

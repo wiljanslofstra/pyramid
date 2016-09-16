@@ -1,8 +1,8 @@
+/* eslint-disable */
 import blocksReducers from 'reducers/blocksReducers';
+/* eslint-enable */
 
 describe('Blocks reducer', () => {
-  let _component
-
   beforeEach(() => {
   });
 
@@ -52,7 +52,7 @@ describe('Blocks reducer', () => {
     expect(state).to.eql(expectedState);
   });
 
-  it('Should keep item three on it\'s position, because it\'s the last' , () => {
+  it('Should keep item three on it\'s position, because it\'s the last', () => {
     // Initial state
     const givenState = { items: [{ text: 'test 1' }, { text: 'test 2' }, { text: 'test 3' }] };
 
@@ -72,7 +72,7 @@ describe('Blocks reducer', () => {
     expect(state).to.eql(expectedState);
   });
 
-  it('Should keep item one on it\'s position, because it\'s the first' , () => {
+  it('Should keep item one on it\'s position, because it\'s the first', () => {
     // Initial state
     const givenState = { items: [{ text: 'test 1' }, { text: 'test 2' }, { text: 'test 3' }] };
 
@@ -92,7 +92,7 @@ describe('Blocks reducer', () => {
     expect(state).to.eql(expectedState);
   });
 
-  it('Should the block from state' , () => {
+  it('Should the block from state', () => {
     // Initial state
     const givenState = { items: [{ text: 'test 1' }, { text: 'test 2' }, { text: 'test 3' }] };
 
@@ -112,7 +112,7 @@ describe('Blocks reducer', () => {
     expect(state).to.eql(expectedState);
   });
 
-  it('Should throw errors when removing non-existing blocks' , () => {
+  it('Should throw errors when removing non-existing blocks', () => {
     // Initial state
     const givenState = { items: [{ text: 'test 1' }, { text: 'test 2' }, { text: 'test 3' }] };
 

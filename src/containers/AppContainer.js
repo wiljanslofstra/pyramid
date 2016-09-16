@@ -1,17 +1,13 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import Blocks from '../components/Blocks';
 
-class AppContainer extends Component {
-  render() {
-    const { store } = this.props;
-
-    return (
-      <Provider store={store}>
-        <Blocks />
-      </Provider>
-    );
-  }
+function AppContainer({ store }) {
+  return (
+    <Provider store={store}>
+      <Blocks />
+    </Provider>
+  );
 }
 
 AppContainer.propTypes = {

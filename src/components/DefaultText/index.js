@@ -12,17 +12,15 @@ class DefaultText extends Component {
   }
 
   render() {
-    const props = this.props;
-
     return (
       <div className="PyramidBlock">
         <BlockControl
           title={this.state.title}
           icon={this.state.icon}
-          moveUp={props.moveUp}
-          moveDown={props.moveDown}
-          removeBlock={props.removeBlock}
-          index={props.index}
+          moveUp={this.props.moveUp}
+          moveDown={this.props.moveDown}
+          removeBlock={this.props.removeBlock}
+          index={this.props.index}
         />
 
         <div className="PyramidBlock__Content">
@@ -32,5 +30,12 @@ class DefaultText extends Component {
     );
   }
 }
+
+DefaultText.propTypes = {
+  moveDown: PropTypes.func.isRequired,
+  moveUp: PropTypes.func.isRequired,
+  removeBlock: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired,
+};
 
 export default DefaultText;
