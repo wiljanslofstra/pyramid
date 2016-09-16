@@ -2,22 +2,16 @@ import moveInArray from '../helpers/moveInArray';
 
 const initialState = {
   items: [{
-    title: 'Default text 1',
-    icon: 'text.svg',
     type: 'defaultText',
     data: {},
     designOptions: {},
     options: {},
   }, {
-    title: 'Default text 2',
-    icon: 'text.svg',
     type: 'defaultText',
     data: {},
     designOptions: {},
     options: {},
   }, {
-    title: 'Default text 3',
-    icon: 'text.svg',
     type: 'defaultText',
     data: {},
     designOptions: {},
@@ -60,7 +54,18 @@ const blocksReducers = (state = initialState, action) => {
       // Return the new state
       return movedDownState;
     case 'REMOVE_BLOCK' :
-      return state;
+      const newState = Object.assign({}, state);
+      const index = action.payload;
+
+      if (index >= newState.items.length) {
+        throw new Error('The index should not exceed the number of blocks');
+      } else if (index < 0) {
+        throw new Error('The index should not be less than zero');
+      }
+
+      newState.items.splice(index, 1);
+
+      return newState;
     default:
       return state;
   }
