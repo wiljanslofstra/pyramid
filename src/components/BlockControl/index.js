@@ -23,19 +23,22 @@ function BlockControl({ title, icon, moveUp, moveDown, removeBlock, index }) {
       <div className="PyramidControl__Controls">
         <button
           className="PyramidControl__Control PyramidControl__Control--Remove"
-          onClick={() => removeBlock(index)}>
+          onClick={() => removeBlock(index)}
+        >
           Remove
         </button>
 
         <button
           className="PyramidControl__Control PyramidControl__Control--Up"
-          onClick={() => moveUp(index)}>
+          onClick={() => moveUp(index)}
+        >
           Move up
         </button>
 
         <button
           className="PyramidControl__Control PyramidControl__Control--Down"
-          onClick={() => moveDown(index)}>
+          onClick={() => moveDown(index)}
+        >
           Move down
         </button>
       </div>
