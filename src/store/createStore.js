@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import makeRootReducer from './reducers';
 import blocksReducers from '../reducers/blocksReducers';
 
-export default (initialState = {}) => {
+export default (initialState = {}, dev = __DEV__) => {
   // ======================================================
   // Middleware Configuration
   // ======================================================
@@ -16,7 +16,7 @@ export default (initialState = {}) => {
   // ======================================================
   const enhancers = [];
 
-  if (__DEV__) {
+  if (dev) {
     const devToolsExtension = window.devToolsExtension;
 
     if (typeof devToolsExtension === 'function') {

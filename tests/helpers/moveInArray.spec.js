@@ -20,4 +20,13 @@ describe('moveInArray', () => {
 
     expect(outcome).to.eql(expected);
   });
+
+  it('Should fill with undefined\'s when exceeding the array length', () => {
+    const initial = [0, 1, 2, 3, 4, 5, 6];
+    const expected = [1, 2, 3, 4, 5, 6, undefined, undefined, 0];
+
+    const outcome = moveInArray(initial, 0, 8);
+
+    expect(outcome).to.eql(expected);
+  });
 });

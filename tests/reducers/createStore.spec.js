@@ -7,4 +7,9 @@ describe('createStore', () => {
     const store = createStore({});
     expect(store).to.be.a('object'); // eslint-disable-line
   });
+
+  it('Should return a store when __DEV__ is defined', () => {
+    const store = createStore({}, true);
+    expect(store).to.be.a('object'); // eslint-disable-line
+  });
 });

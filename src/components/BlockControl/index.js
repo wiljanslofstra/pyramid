@@ -21,15 +21,21 @@ function BlockControl({ title, icon, moveUp, moveDown, removeBlock, index }) {
       </div>
 
       <div className="PyramidControl__Controls">
-        <button className="PyramidControl__Control" onClick={() => removeBlock(index)}>
+        <button
+          className="PyramidControl__Control PyramidControl__Control--Remove"
+          onClick={() => removeBlock(index)}>
           Remove
         </button>
 
-        <button className="PyramidControl__Control" onClick={() => moveUp(index)}>
+        <button
+          className="PyramidControl__Control PyramidControl__Control--Up"
+          onClick={() => moveUp(index)}>
           Move up
         </button>
 
-        <button className="PyramidControl__Control" onClick={() => moveDown(index)}>
+        <button
+          className="PyramidControl__Control PyramidControl__Control--Down"
+          onClick={() => moveDown(index)}>
           Move down
         </button>
       </div>

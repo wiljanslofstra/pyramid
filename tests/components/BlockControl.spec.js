@@ -2,6 +2,7 @@
 import React from 'react';
 import BlockControl from 'components/BlockControl';
 import { shallow, mount } from 'enzyme';
+import sinon from 'sinon';
 /* eslint-enable */
 
 const fakeProps = {
@@ -53,5 +54,47 @@ describe('BlockControl component', () => {
     expect(
       element.find('.PyramidControl__Controls')
     ).to.have.exactly(3).descendants('.PyramidControl__Control');
+  });
+
+  it('Should call removeBlock', () => {
+    const onRemoveClick = sinon.spy();
+
+    const customProps = Object.assign({}, fakeProps, {
+      removeBlock: onRemoveClick,
+    });
+
+    const element = mount(<BlockControl {...customProps} />);
+
+    element.find('.PyramidControl__Control--Remove').simulate('click');
+
+    expect(onRemoveClick.calledOnce).to.equal(true);
+  });
+
+  it('Should call moveUp', () => {
+    const onMoveUp = sinon.spy();
+
+    const customProps = Object.assign({}, fakeProps, {
+      moveUp: onMoveUp,
+    });
+
+    const element = mount(<BlockControl {...customProps} />);
+
+    element.find('.PyramidControl__Control--Up').simulate('click');
+
+    expect(onMoveUp.calledOnce).to.equal(true);
+  });
+
+  it('Should call moveDown', () => {
+    const onMoveDown = sinon.spy();
+
+    const customProps = Object.assign({}, fakeProps, {
+      moveDown: onMoveDown,
+    });
+
+    const element = mount(<BlockControl {...customProps} />);
+
+    element.find('.PyramidControl__Control--Down').simulate('click');
+
+    expect(onMoveDown.calledOnce).to.equal(true);
   });
 });
