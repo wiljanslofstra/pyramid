@@ -9,7 +9,7 @@ function BlockControl({ title, icon, moveUp, moveDown, removeBlock, index }) {
     };
 
     iconHTML = (
-      <div className="PyramidControl__TitleIcon" dangerouslySetInnerHTML={dangerousIcon}></div>
+      <div className="PyramidControl__TitleIcon" dangerouslySetInnerHTML={dangerousIcon} />
     );
   }
 

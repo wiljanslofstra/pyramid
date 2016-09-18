@@ -1,6 +1,8 @@
+/* eslint-disable */
 import React from 'react';
 import BlockControl from 'components/BlockControl';
 import { shallow, mount } from 'enzyme';
+/* eslint-enable */
 
 const fakeProps = {
   title: 'Test',
@@ -13,7 +15,7 @@ const fakeProps = {
 
 describe('BlockControl component', () => {
   it('Should create a BlockControl component without errors', () => {
-    const element = shallow(<BlockControl {...fakeProps} />);
+    shallow(<BlockControl {...fakeProps} />);
   });
 
   it('Should have a .PyramidControl className', () => {
@@ -28,7 +30,12 @@ describe('BlockControl component', () => {
 
   it('Should render the icon', () => {
     const icon = `
-      <svg id="i-edit" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+      <svg
+        id="i-edit"
+        viewBox="0 0 32 32"
+        width="32" height="32"
+        fill="none"
+        stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
           <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
       </svg>
     `;

@@ -1,7 +1,9 @@
+/* eslint-disable */
 import {
   moveUp, moveDown, addBlock, removeBlock,
   MOVE_UP, MOVE_DOWN, ADD_BLOCK, REMOVE_BLOCK
 } from 'components/Blocks/actionTypes';
+/* eslint-enable */
 
 describe('Blocks actions', () => {
   it('Should create a moveUp action', () => {

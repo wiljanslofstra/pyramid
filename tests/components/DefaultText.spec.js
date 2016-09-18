@@ -1,6 +1,8 @@
+/* eslint-disable */
 import React from 'react';
 import DefaultText from 'components/DefaultText';
 import { shallow, mount } from 'enzyme';
+/* eslint-enable */
 
 const fakeProps = {
   moveUp: () => {},
@@ -10,7 +12,7 @@ const fakeProps = {
 
 describe('DefaultText component', () => {
   it('Should create a DefaultText component without errors', () => {
-    const element = shallow(<DefaultText />);
+    shallow(<DefaultText />);
   });
 
   it('Should have a .PyramidBlock className', () => {

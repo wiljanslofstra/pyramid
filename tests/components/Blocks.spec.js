@@ -1,6 +1,8 @@
+/* eslint-disable */
 import React from 'react';
 import Blocks from 'components/Blocks/Blocks';
 import { shallow, mount } from 'enzyme';
+/* eslint-enable */
 
 const fakeProps = {
   moveUp: () => {},
@@ -14,14 +16,18 @@ const fakeBlock = {
 
 describe('Blocks component', () => {
   it('Should create a Blocks component without errors', () => {
-    const element = shallow(<Blocks blocks={[]} />);
+    shallow(<Blocks blocks={[]} />);
   });
 
   it('Should create a Blocks component with two items', () => {
-    const element = mount(<Blocks blocks={[
-      Object.assign({}, fakeBlock),
-      Object.assign({}, fakeBlock)
-    ]} {...fakeProps} />);
+    const element = mount(
+      <Blocks
+        blocks={[
+          Object.assign({}, fakeBlock),
+          Object.assign({}, fakeBlock),
+        ]} {...fakeProps}
+      />
+    );
 
     expect(element).to.have.exactly(2).descendants('.PyramidBlock');
   });
