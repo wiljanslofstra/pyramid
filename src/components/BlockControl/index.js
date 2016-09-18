@@ -1,10 +1,23 @@
 import React, { PropTypes } from 'react';
 
 function BlockControl({ title, icon, moveUp, moveDown, removeBlock, index }) {
+  let iconHTML = null;
+
+  if (icon) {
+    const dangerousIcon = {
+      __html: icon,
+    };
+
+    iconHTML = (
+      <div className="PyramidControl__TitleIcon" dangerouslySetInnerHTML={dangerousIcon}></div>
+    );
+  }
+
   return (
-    <div className="PyramidControl">
+    <div className={(iconHTML) ? 'PyramidControl has-icon' : 'PyramidControl'}>
       <div className="PyramidControl__Title">
-        {icon} {title}
+        {iconHTML}
+        <div className="PyramidControl__TitleText">{title}</div>
       </div>
 
       <div className="PyramidControl__Controls">
