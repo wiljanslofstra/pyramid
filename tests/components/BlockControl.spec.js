@@ -47,4 +47,11 @@ describe('BlockControl component', () => {
     const element = mount(<BlockControl {...fakeProps} icon={null} />);
     expect(element.find('.PyramidControl__TitleIcon')).to.not.be.present();
   });
+
+  it('Should render controls for moveDown, moveUp and removeBlock', () => {
+    const element = mount(<BlockControl {...fakeProps} />);
+    expect(
+      element.find('.PyramidControl__Controls')
+    ).to.have.exactly(3).descendants('.PyramidControl__Control');
+  });
 });

@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import Blocks from 'components/Blocks/Blocks';
+import blocksIndex from 'components/Blocks';
 import { shallow, mount } from 'enzyme';
 /* eslint-enable */
 
@@ -30,5 +31,9 @@ describe('Blocks component', () => {
     );
 
     expect(element).to.have.exactly(2).descendants('.PyramidBlock');
+  });
+
+  it('Should return a connect method', () => {
+    expect(blocksIndex).to.be.a('function');
   });
 });
