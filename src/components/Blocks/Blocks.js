@@ -1,6 +1,11 @@
+/* global Stretchy */
+
 import React, { Component, PropTypes } from 'react';
+import 'stretchy';
 
 import DefaultText from '../DefaultText';
+
+Stretchy.selectors.filter = '.PyramidFormControl--stretch';
 
 const blocksList = {
   defaultText: DefaultText,

@@ -1,19 +1,20 @@
+import { filter } from 'lodash';
 import moveInArray from '../helpers/moveInArray';
 
 const initialState = {
   items: [{
     type: 'defaultText',
-    data: {},
+    data: { text: 'Test 0' },
     designOptions: {},
     options: {},
   }, {
     type: 'defaultText',
-    data: {},
+    data: { text: 'Test 1' },
     designOptions: {},
     options: {},
   }, {
     type: 'defaultText',
-    data: {},
+    data: { text: 'Test 2' },
     designOptions: {},
     options: {},
   }],
@@ -69,12 +70,19 @@ const blocksReducers = (state = initialState, action) => {
         throw new Error('The index should not be less than zero');
       }
 
+      newState.items = filter(newState.items, (item, i) => i !== index);
+
+      return newState;
+    }
+    case 'UPDATE_BLOCK_DATA' : {
+      const newState = Object.assign({}, state);
       const items = newState.items.slice(0);
+      const item = items[action.payload.index];
 
-      items.splice(index, 1);
+      item.data = action.payload.data;
 
+      items[action.payload.index] = item;
       newState.items = items;
-
       return newState;
     }
     default:

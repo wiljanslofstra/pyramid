@@ -1,0 +1,12 @@
+.PyramidFormControl {
+  width: 100%;
+  display: block;
+  border-radius: $pyramid-control-radius;
+  border-color: $pyramid-control-border;
+  padding: .75rem;
+}
+
+textarea.PyramidFormControl {
+  resize: vertical;
+  line-height: 1.4;
+}

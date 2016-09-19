@@ -136,4 +136,26 @@ describe('Blocks reducer', () => {
       blocksReducers(Object.assign({}, givenState), secondAction);
     }).to.throw('The index should not exceed the number of blocks');
   });
+
+  it('Should update the data on block with index 1', () => {
+    const givenState = {
+      items: [
+        { type: 'defaultText', data: { text: 'Text 1' } },
+        { type: 'defaultText', data: { text: 'Text 2' } },
+        { type: 'defaultText', data: { text: 'Text 3' } },
+      ],
+    };
+
+    const outcome = blocksReducers(Object.assign({}, givenState), {
+      type: 'UPDATE_BLOCK_DATA',
+      payload: {
+        index: 1,
+        data: {
+          text: 'New text',
+        },
+      },
+    });
+
+    expect(outcome.items[1].data.text).to.be.equal('New text');
+  });
 });

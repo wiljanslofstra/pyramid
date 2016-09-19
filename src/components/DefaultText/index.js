@@ -13,21 +13,39 @@ const icon = `
   </svg>
 `;
 
-class DefaultText extends Component {  // eslint-disable-line
+class DefaultText extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onChange = this.onEdit.bind(this);
+  }
+
+  onEdit(val, key) {
+    const data = Object.assign({}, this.props.data);
+
+    data[key] = val;
+
+    this.props.updateBlockData(data, this.props.index);
+  }
+
   render() {
+    const data = (typeof this.props.data !== 'undefined') ? this.props.data : {};
+
     return (
       <div className="PyramidBlock">
         <BlockControl
           title={title}
           icon={icon}
-          moveUp={this.props.moveUp}
-          moveDown={this.props.moveDown}
-          removeBlock={this.props.removeBlock}
-          index={this.props.index}
+          {...this.props}
         />
 
         <div className="PyramidBlock__Content">
-          Block Content
+          <textarea
+            className="PyramidFormControl PyramidFormControl--stretch"
+            placeholder="Place your content here..."
+            onChange={(event) => { this.onChange(event.target.value, 'text'); }}
+            value={(data.text !== undefined) ? data.text : ''}
+          />
         </div>
       </div>
     );
@@ -35,10 +53,9 @@ class DefaultText extends Component {  // eslint-disable-line
 }
 
 DefaultText.propTypes = {
-  moveDown: PropTypes.func.isRequired,
-  moveUp: PropTypes.func.isRequired,
-  removeBlock: PropTypes.func.isRequired,
+  updateBlockData: PropTypes.func.isRequired,
   index: PropTypes.number.isRequired,
+  data: PropTypes.object,
 };
 
 export default DefaultText;

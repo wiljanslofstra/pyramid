@@ -1,7 +1,7 @@
 /* eslint-disable */
 import {
-  moveUp, moveDown, addBlock, removeBlock,
-  MOVE_UP, MOVE_DOWN, ADD_BLOCK, REMOVE_BLOCK
+  moveUp, moveDown, addBlock, removeBlock, updateBlockData,
+  MOVE_UP, MOVE_DOWN, ADD_BLOCK, REMOVE_BLOCK, UPDATE_BLOCK_DATA
 } from 'components/Blocks/actionTypes';
 /* eslint-enable */
 
@@ -30,6 +30,13 @@ describe('Blocks actions', () => {
   it('Should create a addBlock action', () => {
     const expected = { type: ADD_BLOCK, payload: 'defaultText' };
     const action = addBlock('defaultText');
+
+    expect(action).to.eql(expected);
+  });
+
+  it('Should create a updateBlockData action', () => {
+    const expected = { type: UPDATE_BLOCK_DATA, payload: { index: 1, data: {} } };
+    const action = updateBlockData({}, 1);
 
     expect(action).to.eql(expected);
   });
