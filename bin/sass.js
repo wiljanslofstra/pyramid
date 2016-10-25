@@ -8,7 +8,7 @@ var reporter = require('postcss-reporter');
 
 // Paths
 var sassPath = path.resolve(__dirname, '../src/styles', 'core.scss');
-var outputPath = path.resolve(__dirname, '../src/static/styles', 'main.css');
+var outputPath = path.resolve(__dirname, '../dist', 'main.css');
 var mapPath = path.resolve(__dirname, '../src/static/styles', 'main.css.map');
 
 // Options
