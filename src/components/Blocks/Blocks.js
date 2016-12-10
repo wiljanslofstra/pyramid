@@ -2,7 +2,7 @@
 
 import React, { Component, PropTypes } from 'react';
 import 'stretchy';
-import { DragDropContext } from 'react-dnd';
+import { DragDropContext as dragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
 import Block from '../Block';
@@ -17,11 +17,9 @@ class Blocks extends Component {
   }
 
   getAllBlocks() {
-    return this.props.blocks.map((block, i) => {
-      return (
-        <Block {...this.props} {...block} index={i} key={i} moveCard={this.moveCard} />
-      );
-    });
+    return this.props.blocks.map((block, i) => (
+      <Block {...this.props} {...block} index={i} key={i} moveCard={this.moveCard} />
+    ));
   }
 
   moveCard(dragIndex, hoverIndex) {
@@ -42,6 +40,7 @@ class Blocks extends Component {
 
 Blocks.propTypes = {
   blocks: PropTypes.array,
+  move: PropTypes.func,
 };
 
-export default DragDropContext(HTML5Backend)(Blocks);
+export default dragDropContext(HTML5Backend)(Blocks);

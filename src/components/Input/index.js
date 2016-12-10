@@ -20,10 +20,6 @@ class InputBlock extends Component {
     this.onChange = this.onEdit.bind(this);
   }
 
-  moveCard() {
-    console.log('mvoe card');
-  }
-
   onEdit(val, key) {
     const data = Object.assign({}, this.props.data);
 
@@ -44,7 +40,8 @@ class InputBlock extends Component {
         />
 
         <div className="PyramidBlock__Content">
-          <input type="text"
+          <input
+            type="text"
             className="PyramidFormControl"
             onChange={(event) => { this.onChange(event.target.value, 'text'); }}
             value={(data.text !== undefined) ? data.text : ''}

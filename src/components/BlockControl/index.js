@@ -26,7 +26,7 @@ function BlockControl({ title, icon, moveUp, moveDown, removeBlock, index, conne
           onClick={() => removeBlock(index)}
           title="Remove"
         >
-          <i className="fa fa-times"></i>
+          <i className="fa fa-times" />
         </button>
 
         <button
@@ -34,7 +34,7 @@ function BlockControl({ title, icon, moveUp, moveDown, removeBlock, index, conne
           onClick={() => moveUp(index)}
           title="Move up"
         >
-          <i className="fa fa-chevron-up"></i>
+          <i className="fa fa-chevron-up" />
         </button>
 
         <button
@@ -42,14 +42,14 @@ function BlockControl({ title, icon, moveUp, moveDown, removeBlock, index, conne
           onClick={() => moveDown(index)}
           title="Move down"
         >
-          <i className="fa fa-chevron-down"></i>
+          <i className="fa fa-chevron-down" />
         </button>
 
         {connectDragSource(
           <div
             className="PyramidControl__Control PyramidControl__Control--Move"
           >
-            <i className="fa fa-arrows"></i>
+            <i className="fa fa-arrows" />
           </div>
         )}
       </div>
@@ -64,6 +64,7 @@ BlockControl.propTypes = {
   title: PropTypes.string.isRequired,
   icon: PropTypes.string,
   index: PropTypes.number.isRequired,
+  connectDragSource: PropTypes.func,
 };
 
 export default BlockControl;

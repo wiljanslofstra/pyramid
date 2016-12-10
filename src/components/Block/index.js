@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
+import { DragSource as dragSource, DropTarget as dropTarget } from 'react-dnd';
 import { cardTarget, cardSource } from '../Blocks/dragAndDrop';
-import { DragSource, DropTarget } from 'react-dnd';
 
 import DefaultText from '../DefaultText';
 import Wysiwyg from '../Wysiwyg';
@@ -14,19 +14,15 @@ const blocksList = {
   video: Video,
 };
 
-@DropTarget('block', cardTarget, connect => ({
-  connectDropTarget: connect.dropTarget()
+@dropTarget('block', cardTarget, connect => ({
+  connectDropTarget: connect.dropTarget(),
 }))
-@DragSource('block', cardSource, (connect, monitor) => ({
+@dragSource('block', cardSource, (connect, monitor) => ({
   connectDragSource: connect.dragSource(),
   connectDragPreview: connect.dragPreview(),
-  isDragging: monitor.isDragging()
+  isDragging: monitor.isDragging(),
 }))
 class Block extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     // Get the type of current block
     const type = this.props.type;
@@ -35,7 +31,7 @@ class Block extends Component {
 
     // Check if a component is available to handle this data type
     if (typeof blocksList[type] === 'undefined') {
-      console.log(`The block type '${type}' is not defined`);
+      console.log(`The block type '${type}' is not defined`); // eslint-disable-line
       return null;
     }
 
@@ -51,6 +47,10 @@ class Block extends Component {
 }
 
 Block.propTypes = {
+  type: PropTypes.string,
+  connectDropTarget: PropTypes.func,
+  connectDragPreview: PropTypes.func,
+  index: PropTypes.number,
 };
 
 export default Block;

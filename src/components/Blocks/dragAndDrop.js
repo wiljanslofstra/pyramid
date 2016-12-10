@@ -4,9 +4,9 @@ export const cardSource = {
   beginDrag(props) {
     return {
       id: props.id,
-      index: props.index
+      index: props.index,
     };
-  }
+  },
 };
 
 export const cardTarget = {
@@ -20,7 +20,7 @@ export const cardTarget = {
     }
 
     // Determine rectangle on screen
-    const hoverBoundingRect = findDOMNode(component).getBoundingClientRect();
+    const hoverBoundingRect = findDOMNode(component).getBoundingClientRect(); // eslint-disable-line
 
     // Get vertical middle
     const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
@@ -52,6 +52,6 @@ export const cardTarget = {
     // Generally it's better to avoid mutations,
     // but it's good here for the sake of performance
     // to avoid expensive index searches.
-    monitor.getItem().index = hoverIndex;
-  }
+    monitor.getItem().index = hoverIndex; // eslint-disable-line
+  },
 };

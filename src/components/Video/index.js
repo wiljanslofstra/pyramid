@@ -1,9 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-import BlockControl from '../BlockControl';
-import VideoPreview from './preview';
-
 import youtubeThumbnail from 'youtube-thumbnail';
 import youtubeUrl from 'youtube-url';
+import BlockControl from '../BlockControl';
+import VideoPreview from './preview';
 
 const title = 'Video';
 const icon = `
@@ -18,6 +17,19 @@ const icon = `
 `;
 
 class VideoBlock extends Component {
+  static renderVideo(url) {
+    if (youtubeUrl.valid(url)) {
+      const thumb = youtubeThumbnail(url);
+      const thumbHighUrl = thumb.high.url;
+
+      return (
+        <VideoPreview url={thumbHighUrl} />
+      );
+    }
+
+    return null;
+  }
+
   constructor(props) {
     super(props);
 
@@ -32,19 +44,6 @@ class VideoBlock extends Component {
     this.props.updateBlockData(data, this.props.index);
   }
 
-  renderVideo(url) {
-    if (youtubeUrl.valid(url)) {
-      const thumb = youtubeThumbnail(url);
-      const thumbHighUrl = thumb.high.url;
-
-      return (
-        <VideoPreview url={thumbHighUrl} />
-      );
-    }
-
-    return null;
-  }
-
   render() {
     const data = (typeof this.props.data !== 'undefined') ? this.props.data : {};
 
@@ -57,12 +56,13 @@ class VideoBlock extends Component {
         />
 
         <div className="PyramidBlock__Content">
-          <input type="text"
+          <input
+            type="text"
             className="PyramidFormControl"
             onChange={(event) => { this.onChange(event.target.value, 'url'); }}
             value={(data.url !== undefined) ? data.url : ''}
           />
-          {this.renderVideo(data.url)}
+          {VideoBlock.renderVideo(data.url)}
         </div>
       </div>
     );

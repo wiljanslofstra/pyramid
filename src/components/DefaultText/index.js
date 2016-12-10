@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import BlockControl from '../BlockControl';
-import { cardTarget, cardSource } from '../Blocks/dragAndDrop';
 
 const title = 'Default text';
 const icon = `

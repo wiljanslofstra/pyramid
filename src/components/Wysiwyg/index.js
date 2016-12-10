@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import BlockControl from '../BlockControl';
 import TinyMCE from 'react-tinymce';
+import BlockControl from '../BlockControl';
 import getTinyMCEConfig from '../../helpers/getTinyMCEConfig';
 
 const title = 'Wysiwyg';
@@ -26,14 +26,6 @@ class WysiwygBlock extends Component {
     this.onChange = this.onEdit.bind(this);
   }
 
-  onEdit(val, key) {
-    const data = Object.assign({}, this.props.data);
-
-    data[key] = val;
-
-    this.props.updateBlockData(data, this.props.index);
-  }
-
   shouldComponentUpdate(nextProps) {
     // Disable update for TinyMCE
     if (nextProps.data.text !== this.props.data.text) {
@@ -41,6 +33,14 @@ class WysiwygBlock extends Component {
     }
 
     return true;
+  }
+
+  onEdit(val, key) {
+    const data = Object.assign({}, this.props.data);
+
+    data[key] = val;
+
+    this.props.updateBlockData(data, this.props.index);
   }
 
   render() {
