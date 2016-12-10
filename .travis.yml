@@ -8,11 +8,11 @@ cache:
     - node_modules
 
 install:
-  - npm install
+  - yarn install
 
 script:
-  - npm run lint
-  - npm run test
+  - yarn run lint
+  - yarn test
 
 after_success:
-  - npm run codecov
+  - yarn run codecov
