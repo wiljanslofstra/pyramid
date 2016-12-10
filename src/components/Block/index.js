@@ -19,6 +19,7 @@ const blocksList = {
 }))
 @DragSource('block', cardSource, (connect, monitor) => ({
   connectDragSource: connect.dragSource(),
+  connectDragPreview: connect.dragPreview(),
   isDragging: monitor.isDragging()
 }))
 class Block extends Component {
@@ -30,7 +31,7 @@ class Block extends Component {
     // Get the type of current block
     const type = this.props.type;
 
-    const { connectDragSource, connectDropTarget } = this.props;
+    const { connectDropTarget, connectDragPreview } = this.props;
 
     // Check if a component is available to handle this data type
     if (typeof blocksList[type] === 'undefined') {
@@ -41,7 +42,7 @@ class Block extends Component {
     const CustomBlock = blocksList[type];
 
     // Return the element, and spread the data all over it
-    return connectDragSource(connectDropTarget(
+    return connectDragPreview(connectDropTarget(
       <div>
         <CustomBlock {...this.props} key={this.props.index} />
       </div>

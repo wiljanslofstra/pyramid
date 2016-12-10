@@ -52,7 +52,7 @@ class WysiwygBlock extends Component {
           {...this.props}
         />
 
-        <div className="PyramidBlock__Content">
+        <div className="PyramidBlock__Content PyramidBlock__Content--nopadding">
           <TinyMCE
             className="PyramidFormControl"
             onChange={(event) => { this.onChange(event.target.getContent(), 'text'); }}

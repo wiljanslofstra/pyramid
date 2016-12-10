@@ -5,3 +5,9 @@
     background: #fff;
     padding: 1rem;
   }
+    .PyramidBlock__Content--nopadding {
+      padding: 0;
+    }
+      .PyramidBlock__Content--nopadding > .mce-tinymce {
+        border: 0;
+      }
