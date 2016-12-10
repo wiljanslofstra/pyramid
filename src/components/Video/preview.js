@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-function videoPreview({ thumbnailUrl, url }) {
+function videoPreview({ thumbnailUrl, url, title, authorName }) {
   return (
     <div className="PyramidVideoPreview">
       <a className="PyramidVideoPreview__Thumbnail" href={url} target="_blank" rel="noopener noreferrer">
@@ -13,6 +13,24 @@ function videoPreview({ thumbnailUrl, url }) {
           </div>
         </div>
       </a>
+
+      <div className="PyramidVideoPreview__Content">
+        <div className="PyramidVideoPreview__ContentLabel">
+          Video title
+        </div>
+
+        <div className="PyramidVideoPreview__ContentTitle">
+          {title}
+        </div>
+
+        <div className="PyramidVideoPreview__ContentLabel">
+          Author
+        </div>
+
+        <div className="PyramidVideoPreview__ContentAuthor">
+          {authorName}
+        </div>
+      </div>
     </div>
   );
 }

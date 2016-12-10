@@ -1,9 +1,13 @@
 .PyramidVideoPreview {
-
+  display: table;
 }
+  .PyramidVideoPreview > * {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
   .PyramidVideoPreview__Thumbnail {
     position: relative;
-    display: block;
     max-width: 200px;
     color: #fff;
     text-decoration: none;
@@ -41,3 +45,18 @@
   .PyramidVideoPreview__Thumbnail:hover .PyramidVideoPreview__ThumbnailOverlay {
     opacity: 1;
   }
+
+  .PyramidVideoPreview__Content {
+    padding-left: 1rem;
+  }
+    .PyramidVideoPreview__ContentLabel {
+      color: #aaa;
+      margin-top: .5rem;
+      margin-bottom: .125rem;
+      text-transform: uppercase;
+      font-size: .75rem;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
