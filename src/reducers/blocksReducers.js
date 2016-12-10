@@ -1,4 +1,4 @@
-/* global REHYDRATE_STATE */
+/* global document */
 
 import { filter } from 'lodash';
 import moveInArray from '../helpers/moveInArray';
@@ -10,8 +10,8 @@ let initialState = { items: [] };
 if (stateElem && stateElem.value.trim()) {
   try {
     initialState = JSON.parse(stateElem.value);
-  } catch(err) {
-    console.error('There\'s an error in your JSON data', err);
+  } catch (err) {
+    console.error('There\'s an error in your JSON data', err); // eslint-disable-line
   }
 }
 

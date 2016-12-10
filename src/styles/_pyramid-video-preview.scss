@@ -1,0 +1,43 @@
+.PyramidVideoPreview {
+
+}
+  .PyramidVideoPreview__Thumbnail {
+    position: relative;
+    display: block;
+    max-width: 200px;
+    color: #fff;
+    text-decoration: none;
+  }
+    .PyramidVideoPreview__ThumbnailImage {
+      max-width: 100%;
+      display: block;
+    }
+
+    .PyramidVideoPreview__ThumbnailOverlay {
+      text-align: center;
+      padding: 0 1rem;
+      background: rgba(10,10,10,.7);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity .3s ease-out;
+      user-select: none;
+    }
+      .PyramidVideoPreview__ThumbnailOverlay div {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .PyramidVideoPreview__ThumbnailOverlay .fa {
+        display: block;
+        margin-bottom: .5rem;
+        font-size: 1.5rem;
+      }
+
+  .PyramidVideoPreview__Thumbnail:hover .PyramidVideoPreview__ThumbnailOverlay {
+    opacity: 1;
+  }

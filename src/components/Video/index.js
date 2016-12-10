@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import youtubeThumbnail from 'youtube-thumbnail';
 import youtubeUrl from 'youtube-url';
+import camelcaseKeys from 'camelcase-keys';
+import getYoutubeInfo from '../../helpers/getYoutubeInfo';
 import BlockControl from '../BlockControl';
 import VideoPreview from './preview';
 
@@ -17,23 +18,19 @@ const icon = `
 `;
 
 class VideoBlock extends Component {
-  static renderVideo(url) {
-    if (youtubeUrl.valid(url)) {
-      const thumb = youtubeThumbnail(url);
-      const thumbHighUrl = thumb.high.url;
-
-      return (
-        <VideoPreview url={thumbHighUrl} />
-      );
-    }
-
-    return null;
-  }
-
   constructor(props) {
     super(props);
 
     this.onChange = this.onEdit.bind(this);
+
+    this.state = {
+      previewElement: null,
+      data: (typeof props.data !== 'undefined') ? props.data : {},
+    };
+
+    if (typeof this.state.data.url !== 'undefined') {
+      this.renderVideo(this.state.data.url);
+    }
   }
 
   onEdit(val, key) {
@@ -44,9 +41,23 @@ class VideoBlock extends Component {
     this.props.updateBlockData(data, this.props.index);
   }
 
-  render() {
-    const data = (typeof this.props.data !== 'undefined') ? this.props.data : {};
+  setPreviewElement(data) {
+    this.setState({
+      previewElement: (
+        <VideoPreview {...data} />
+      ),
+    });
+  }
 
+  renderVideo(videoUrl) {
+    if (youtubeUrl.valid(videoUrl)) {
+      getYoutubeInfo(videoUrl, (data) => {
+        this.setPreviewElement(camelcaseKeys(data));
+      });
+    }
+  }
+
+  render() {
     return (
       <div className="PyramidBlock">
         <BlockControl
@@ -56,13 +67,16 @@ class VideoBlock extends Component {
         />
 
         <div className="PyramidBlock__Content">
-          <input
-            type="text"
-            className="PyramidFormControl"
-            onChange={(event) => { this.onChange(event.target.value, 'url'); }}
-            value={(data.url !== undefined) ? data.url : ''}
-          />
-          {VideoBlock.renderVideo(data.url)}
+          <div className="PyramidBlock__Group">
+            <input
+              type="text"
+              className="PyramidFormControl"
+              onChange={(event) => { this.onChange(event.target.value, 'url'); }}
+              value={(this.state.data.url !== undefined) ? this.state.data.url : ''}
+            />
+          </div>
+
+          {this.state.previewElement}
         </div>
       </div>
     );

@@ -1121,6 +1121,13 @@ camel-case@^3.0.0:
     no-case "^2.2.0"
     upper-case "^1.1.1"
 
+camelcase-keys:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/camelcase-keys/-/camelcase-keys-4.0.0.tgz#4f8bbe2762bde2489c1561366d216931ac4a491b"
+  dependencies:
+    camelcase "^3.0.0"
+    map-obj "^2.0.0"
+
 camelcase-keys@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/camelcase-keys/-/camelcase-keys-2.1.0.tgz#308beeaffdf28119051efa1d932213c91b8f92e7"
@@ -2493,10 +2500,6 @@ get-stdin@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/get-stdin/-/get-stdin-4.0.1.tgz#b968c6b0a04384324902e8bf1a5df32579a450fe"
 
-get-youtube-id@0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/get-youtube-id/-/get-youtube-id-0.1.3.tgz#eb76a0534cb7e9d1fcce5d4b61a0820d32d6855d"
-
 getpass@^0.1.1:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/getpass/-/getpass-0.1.6.tgz#283ffd9fc1256840875311c1b60e8c40187110e6"
@@ -3696,6 +3699,10 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
 
+map-obj@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-2.0.0.tgz#a65cd29087a92598b8791257a523e021222ac1f9"
+
 map-stream@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/map-stream/-/map-stream-0.1.0.tgz#e56aa94c4c8055a16404a0674b78f215f7c8e194"
@@ -4121,10 +4128,6 @@ once@~1.3.0, once@~1.3.3:
 onetime@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/onetime/-/onetime-1.1.0.tgz#a1f7838f8314c516f05ecefcbc4ccfe04b4ed789"
-
-open@0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/open/-/open-0.0.5.tgz#42c3e18ec95466b6bf0dc42f3a2945c3f0cad8fc"
 
 optimist@^0.6.1, optimist@~0.6.0:
   version "0.6.1"
@@ -5905,6 +5908,10 @@ webpack@^1.12.14:
     watchpack "^0.2.1"
     webpack-core "~0.6.0"
 
+whatwg-fetch:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.1.tgz#078b9461bbe91cea73cbce8bb122a05f9e92b772"
+
 whatwg-fetch@>=0.10.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-1.0.0.tgz#01c2ac4df40e236aaa18480e3be74bd5c8eb798e"
@@ -6086,13 +6093,6 @@ yauzl@2.4.1:
 yeast@0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/yeast/-/yeast-0.1.2.tgz#008e06d8094320c372dbc2f8ed76a0ca6c8ac419"
-
-youtube-thumbnail:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/youtube-thumbnail/-/youtube-thumbnail-1.3.0.tgz#f6fbe5c51a89d3b0916574f4da0d3b1339f88c3f"
-  dependencies:
-    get-youtube-id "0.1.3"
-    open "0.0.5"
 
 youtube-url:
   version "0.5.0"

@@ -1,5 +1,6 @@
 /* global document, __DEV__, window */
 
+import 'whatwg-fetch';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import createStore from './store/createStore';
