@@ -25,12 +25,15 @@ class VideoBlock extends Component {
 
     this.state = {
       previewElement: null,
-      data: (typeof props.data !== 'undefined') ? props.data : {},
+      videoUrl: '',
+      videoData: null,
     };
 
-    if (typeof this.state.data.url !== 'undefined') {
-      this.renderVideo(this.state.data.url);
-    }
+    this.updateVideo();
+  }
+
+  componentDidUpdate() {
+    this.updateVideo();
   }
 
   onEdit(val, key) {
@@ -41,23 +44,31 @@ class VideoBlock extends Component {
     this.props.updateBlockData(data, this.props.index);
   }
 
-  setPreviewElement(data) {
-    this.setState({
-      previewElement: (
-        <VideoPreview {...data} />
-      ),
-    });
+  updateVideo() {
+    if (typeof this.props.data.url !== 'undefined' && this.props.data.url !== this.state.videoUrl) {
+      this.renderVideo(this.props.data.url);
+    }
   }
 
   renderVideo(videoUrl) {
     if (youtubeUrl.valid(videoUrl)) {
       getYoutubeInfo(videoUrl, (data) => {
-        this.setPreviewElement(camelcaseKeys(data));
+        const camelcasedData = camelcaseKeys(data);
+
+        this.setState({
+          videoUrl,
+          videoData: camelcasedData,
+          previewElement: (
+            <VideoPreview {...camelcasedData} />
+          ),
+        });
       });
     }
   }
 
   render() {
+    const data = (typeof this.props.data !== 'undefined') ? this.props.data : {};
+
     return (
       <div className="PyramidBlock">
         <BlockControl
@@ -72,7 +83,7 @@ class VideoBlock extends Component {
               type="text"
               className="PyramidFormControl"
               onChange={(event) => { this.onChange(event.target.value, 'url'); }}
-              value={(this.state.data.url !== undefined) ? this.state.data.url : ''}
+              value={(data.url !== undefined) ? data.url : ''}
             />
           </div>
 
