@@ -11,11 +11,12 @@ const fakeProps = {
   removeBlock: () => {},
   updateBlockData: () => {},
   connectDragSource: () => {},
+  index: 0,
 };
 
 describe('DefaultText component', () => {
   it('Should create a DefaultText component without errors', () => {
-    shallow(<DefaultText />);
+    shallow(<DefaultText {...fakeProps} />);
   });
 
   it('Should have a .PyramidBlock className', () => {

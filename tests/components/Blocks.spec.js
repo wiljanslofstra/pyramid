@@ -9,6 +9,7 @@ const fakeProps = {
   moveUp: () => {},
   moveDown: () => {},
   removeBlock: () => {},
+  updateBlockData: () => {},
 };
 
 const fakeBlock = {
