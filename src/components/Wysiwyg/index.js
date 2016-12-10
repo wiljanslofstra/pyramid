@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import BlockControl from '../BlockControl';
-import { cardTarget, cardSource } from '../Blocks/dragAndDrop';
+import TinyMCE from 'react-tinymce';
+import getTinyMCEConfig from '../../helpers/getTinyMCEConfig';
 
-const title = 'Default text';
+const title = 'Wysiwyg';
 const icon = `
   <svg
     id="i-edit"
@@ -14,9 +15,13 @@ const icon = `
   </svg>
 `;
 
-class DefaultText extends Component {
+class WysiwygBlock extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      content: props.data.text,
+    };
 
     this.onChange = this.onEdit.bind(this);
   }
@@ -29,9 +34,16 @@ class DefaultText extends Component {
     this.props.updateBlockData(data, this.props.index);
   }
 
-  render() {
-    const data = (typeof this.props.data !== 'undefined') ? this.props.data : {};
+  shouldComponentUpdate(nextProps) {
+    // Disable update for TinyMCE
+    if (nextProps.data.text !== this.props.data.text) {
+      return false;
+    }
 
+    return true;
+  }
+
+  render() {
     return (
       <div className="PyramidBlock">
         <BlockControl
@@ -41,11 +53,11 @@ class DefaultText extends Component {
         />
 
         <div className="PyramidBlock__Content">
-          <textarea
-            className="PyramidFormControl PyramidFormControl--stretch"
-            placeholder="Place your content here..."
-            onChange={(event) => { this.onChange(event.target.value, 'text'); }}
-            value={(data.text !== undefined) ? data.text : ''}
+          <TinyMCE
+            className="PyramidFormControl"
+            onChange={(event) => { this.onChange(event.target.getContent(), 'text'); }}
+            content={this.state.content}
+            config={getTinyMCEConfig}
           />
         </div>
       </div>
@@ -53,10 +65,10 @@ class DefaultText extends Component {
   }
 }
 
-DefaultText.propTypes = {
+WysiwygBlock.propTypes = {
   updateBlockData: PropTypes.func.isRequired,
   index: PropTypes.number.isRequired,
   data: PropTypes.object,
 };
 
-export default DefaultText;
+export default WysiwygBlock;

@@ -30,7 +30,7 @@ const config = {
   // ----------------------------------
   compiler_babel: {
     cacheDirectory: true,
-    plugins: ['transform-runtime'],
+    plugins: ['transform-runtime', 'transform-decorators-legacy'],
     presets: ['es2015', 'react', 'stage-0'],
   },
   compiler_devtool: 'source-map',
@@ -81,7 +81,7 @@ config.globals = {
   __PROD__: config.env === 'production',
   __TEST__: config.env === 'test',
   __COVERAGE__: config.env === 'test',
-  __BASENAME__: JSON.stringify(process.env.BASENAME || ''),
+  __BASENAME__: JSON.stringify(process.env.BASENAME || '')
 };
 
 // ------------------------------------

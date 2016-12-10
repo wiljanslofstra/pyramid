@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import Blocks from './Blocks';
-import { moveUp, moveDown, addBlock, removeBlock, updateBlockData } from './actionTypes';
+import { moveUp, moveDown, move, addBlock, removeBlock, updateBlockData } from './actionTypes';
 
 const mapDispatchToProps = {
   moveUp,
   moveDown,
+  move,
   addBlock,
   removeBlock,
   updateBlockData,

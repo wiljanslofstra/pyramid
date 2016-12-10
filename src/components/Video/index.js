@@ -1,8 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import BlockControl from '../BlockControl';
-import { cardTarget, cardSource } from '../Blocks/dragAndDrop';
+import VideoPreview from './preview';
 
-const title = 'Default text';
+import youtubeThumbnail from 'youtube-thumbnail';
+import youtubeUrl from 'youtube-url';
+
+const title = 'Video';
 const icon = `
   <svg
     id="i-edit"
@@ -14,7 +17,7 @@ const icon = `
   </svg>
 `;
 
-class DefaultText extends Component {
+class VideoBlock extends Component {
   constructor(props) {
     super(props);
 
@@ -29,6 +32,19 @@ class DefaultText extends Component {
     this.props.updateBlockData(data, this.props.index);
   }
 
+  renderVideo(url) {
+    if (youtubeUrl.valid(url)) {
+      const thumb = youtubeThumbnail(url);
+      const thumbHighUrl = thumb.high.url;
+
+      return (
+        <VideoPreview url={thumbHighUrl} />
+      );
+    }
+
+    return null;
+  }
+
   render() {
     const data = (typeof this.props.data !== 'undefined') ? this.props.data : {};
 
@@ -41,22 +57,22 @@ class DefaultText extends Component {
         />
 
         <div className="PyramidBlock__Content">
-          <textarea
-            className="PyramidFormControl PyramidFormControl--stretch"
-            placeholder="Place your content here..."
-            onChange={(event) => { this.onChange(event.target.value, 'text'); }}
-            value={(data.text !== undefined) ? data.text : ''}
+          <input type="text"
+            className="PyramidFormControl"
+            onChange={(event) => { this.onChange(event.target.value, 'url'); }}
+            value={(data.url !== undefined) ? data.url : ''}
           />
+          {this.renderVideo(data.url)}
         </div>
       </div>
     );
   }
 }
 
-DefaultText.propTypes = {
+VideoBlock.propTypes = {
   updateBlockData: PropTypes.func.isRequired,
   index: PropTypes.number.isRequired,
   data: PropTypes.object,
 };
 
-export default DefaultText;
+export default VideoBlock;

@@ -51,13 +51,13 @@ webpackConfig.plugins = [
   new webpack.DefinePlugin(config.globals),
   new webpack.optimize.OccurrenceOrderPlugin(),
   new webpack.optimize.DedupePlugin(),
-  new webpack.optimize.UglifyJsPlugin({
-    compress: {
-      unused: true,
-      dead_code: true,
-      warnings: false,
-    },
-  })
+  // new webpack.optimize.UglifyJsPlugin({
+  //   compress: {
+  //     unused: true,
+  //     dead_code: true,
+  //     warnings: false,
+  //   },
+  // })
 ];
 
 // ------------------------------------
@@ -69,9 +69,6 @@ webpackConfig.module.loaders = [{
   exclude: /node_modules/,
   loader: 'babel',
   query: config.compiler_babel,
-}, {
-  test: /\.json$/,
-  loader: 'json',
 }, {
   test: /\.(png|jpg)$/,
   loader: 'url?limit=8192',

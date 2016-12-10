@@ -2,33 +2,30 @@
 
 import React, { Component, PropTypes } from 'react';
 import 'stretchy';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
-import DefaultText from '../DefaultText';
+import Block from '../Block';
 
 Stretchy.selectors.filter = '.PyramidFormControl--stretch';
 
-const blocksList = {
-  defaultText: DefaultText,
-};
-
 class Blocks extends Component {
+  constructor(props) {
+    super(props);
+
+    this.moveCard = this.moveCard.bind(this);
+  }
+
   getAllBlocks() {
     return this.props.blocks.map((block, i) => {
-      // Get the type of current block
-      const type = block.type;
-
-      // Check if a component is available to handle this data type
-      if (typeof blocksList[type] !== 'undefined') {
-        const Block = blocksList[type];
-
-        // Return the element, and spread the data all over it
-        return (
-          <Block {...this.props} {...block} index={i} key={i} />
-        );
-      }
-
-      throw new Error('This block type is not defined, at it to the configuration to continue.');
+      return (
+        <Block {...this.props} {...block} index={i} key={i} moveCard={this.moveCard} />
+      );
     });
+  }
+
+  moveCard(dragIndex, hoverIndex) {
+    this.props.move(dragIndex, hoverIndex);
   }
 
   render() {
@@ -47,4 +44,4 @@ Blocks.propTypes = {
   blocks: PropTypes.array,
 };
 
-export default Blocks;
+export default DragDropContext(HTML5Backend)(Blocks);

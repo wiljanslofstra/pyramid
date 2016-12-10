@@ -8,13 +8,18 @@ const initialState = {
     designOptions: {},
     options: {},
   }, {
-    type: 'defaultText',
+    type: 'input',
     data: { text: 'Test 1' },
     designOptions: {},
     options: {},
   }, {
-    type: 'defaultText',
+    type: 'wysiwyg',
     data: { text: 'Test 2' },
+    designOptions: {},
+    options: {},
+  }, {
+    type: 'video',
+    data: { url: 'http://www.youtube.com/' },
     designOptions: {},
     options: {},
   }],
@@ -59,6 +64,17 @@ const blocksReducers = (state = initialState, action) => {
 
       // Return the new state
       return movedDownState;
+    }
+    case 'MOVE' : {
+      const movedState = Object.assign({}, state);
+
+      movedState.items = moveInArray(
+        movedState.items.slice(0),
+        action.payload.from,
+        action.payload.to
+      );
+
+      return movedState;
     }
     case 'REMOVE_BLOCK' : {
       const newState = Object.assign({}, state);

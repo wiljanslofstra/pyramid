@@ -1,8 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import BlockControl from '../BlockControl';
-import { cardTarget, cardSource } from '../Blocks/dragAndDrop';
 
-const title = 'Default text';
+const title = 'Input';
 const icon = `
   <svg
     id="i-edit"
@@ -14,11 +13,15 @@ const icon = `
   </svg>
 `;
 
-class DefaultText extends Component {
+class InputBlock extends Component {
   constructor(props) {
     super(props);
 
     this.onChange = this.onEdit.bind(this);
+  }
+
+  moveCard() {
+    console.log('mvoe card');
   }
 
   onEdit(val, key) {
@@ -41,9 +44,8 @@ class DefaultText extends Component {
         />
 
         <div className="PyramidBlock__Content">
-          <textarea
-            className="PyramidFormControl PyramidFormControl--stretch"
-            placeholder="Place your content here..."
+          <input type="text"
+            className="PyramidFormControl"
             onChange={(event) => { this.onChange(event.target.value, 'text'); }}
             value={(data.text !== undefined) ? data.text : ''}
           />
@@ -53,10 +55,10 @@ class DefaultText extends Component {
   }
 }
 
-DefaultText.propTypes = {
+InputBlock.propTypes = {
   updateBlockData: PropTypes.func.isRequired,
   index: PropTypes.number.isRequired,
   data: PropTypes.object,
 };
 
-export default DefaultText;
+export default InputBlock;

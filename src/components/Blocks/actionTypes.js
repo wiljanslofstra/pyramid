@@ -1,5 +1,6 @@
 export const MOVE_UP = 'MOVE_UP';
 export const MOVE_DOWN = 'MOVE_DOWN';
+export const MOVE = 'MOVE';
 export const ADD_BLOCK = 'ADD_BLOCK';
 export const REMOVE_BLOCK = 'REMOVE_BLOCK';
 export const UPDATE_BLOCK_DATA = 'UPDATE_BLOCK_DATA';
@@ -15,6 +16,16 @@ export function moveDown(index) {
   return {
     type: MOVE_DOWN,
     payload: index,
+  };
+}
+
+export function move(from, to) {
+  return {
+    type: MOVE,
+    payload: {
+      from,
+      to,
+    },
   };
 }
 
