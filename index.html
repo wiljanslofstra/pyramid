@@ -10,6 +10,30 @@
 <body>
   <div id="root" style="height: 100%"></div>
 
+  <textarea id="blocks-state" style="display: none">{
+    "items": [{
+      "type": "defaultText",
+      "data": { "text": "Test 0" },
+      "designOptions": {},
+      "options": {}
+    }, {
+      "type": "input",
+      "data": { "text": "Test 1" },
+      "designOptions": {},
+      "options": {}
+    }, {
+      "type": "wysiwyg",
+      "data": { "text": "Test 2" },
+      "designOptions": {},
+      "options": {}
+    }, {
+      "type": "video",
+      "data": { "url": "http://www.youtube.com/" },
+      "designOptions": {},
+      "options": {}
+    }]
+  }</textarea>
+
   <script src="https://cdn.tinymce.com/4/tinymce.min.js"></script>
   <script type="text/javascript" src="dist/vendor.js"></script>
   <script type="text/javascript" src="dist/app.js"></script>

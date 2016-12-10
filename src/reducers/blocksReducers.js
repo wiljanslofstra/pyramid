@@ -1,29 +1,19 @@
+/* global REHYDRATE_STATE */
+
 import { filter } from 'lodash';
 import moveInArray from '../helpers/moveInArray';
 
-const initialState = {
-  items: [{
-    type: 'defaultText',
-    data: { text: 'Test 0' },
-    designOptions: {},
-    options: {},
-  }, {
-    type: 'input',
-    data: { text: 'Test 1' },
-    designOptions: {},
-    options: {},
-  }, {
-    type: 'wysiwyg',
-    data: { text: 'Test 2' },
-    designOptions: {},
-    options: {},
-  }, {
-    type: 'video',
-    data: { url: 'http://www.youtube.com/' },
-    designOptions: {},
-    options: {},
-  }],
-};
+const stateElem = document.getElementById('blocks-state');
+
+let initialState = { items: [] };
+
+if (stateElem && stateElem.value.trim()) {
+  try {
+    initialState = JSON.parse(stateElem.value);
+  } catch(err) {
+    console.error('There\'s an error in your JSON data', err);
+  }
+}
 
 const blocksReducers = (state = initialState, action) => {
   switch (action.type) {
