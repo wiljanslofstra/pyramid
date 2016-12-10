@@ -10,6 +10,7 @@ const fakeProps = {
   moveDown: () => {},
   removeBlock: () => {},
   updateBlockData: () => {},
+  connectDragSource: () => {},
 };
 
 describe('DefaultText component', () => {

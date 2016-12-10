@@ -12,6 +12,7 @@ const fakeProps = {
   moveUp: () => {},
   moveDown: () => {},
   removeBlock: () => {},
+  connectDragSource: () => {},
 };
 
 describe('BlockControl component', () => {
