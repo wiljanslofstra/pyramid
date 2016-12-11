@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { DragSource as dragSource, DropTarget as dropTarget } from 'react-dnd';
 import { cardTarget, cardSource } from '../Blocks/dragAndDrop';
+import BlockAddControl from '../BlockAddControl';
 
 import DefaultText from '../DefaultText';
 import Wysiwyg from '../Wysiwyg';
@@ -39,8 +40,9 @@ class Block extends Component {
 
     // Return the element, and spread the data all over it
     return connectDragPreview(connectDropTarget(
-      <div>
+      <div className="PyramidBlockWrapper">
         <CustomBlock {...this.props} key={this.props.index} />
+        <BlockAddControl />
       </div>
     ));
   }

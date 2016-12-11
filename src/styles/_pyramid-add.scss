@@ -1,0 +1,26 @@
+.PyramidAdd {
+  position: relative;
+  padding: 1rem 0;
+  display: block;
+  background: transparent;
+  border: 0;
+  width: 100%;
+  color: #666;
+  background: rgba(255,255,255,.25);
+  opacity: 0;
+  transition: opacity .3s ease-out;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+  .PyramidAdd__Handle {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    text-align: center;
+    line-height: 2rem;
+  }
+    .PyramidAdd__Handle .fa {
+
+    }

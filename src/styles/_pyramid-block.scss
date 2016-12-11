@@ -1,5 +1,4 @@
 .PyramidBlock {
-  margin-bottom: 2rem;
 }
   .PyramidBlock__Content {
     background: #fff;
@@ -15,3 +14,18 @@
   .PyramidBlock__Group {
     margin-bottom: 1rem;
   }
+
+  .PyramidBlockWrapper:last-child .PyramidAdd {
+    opacity: 1;
+    background: transparent;
+  }
+    .PyramidBlockWrapper:last-child .PyramidAdd__Handle {
+      position: static;
+      margin: 0 auto;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      background: #fff;
+    }
