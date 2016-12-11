@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import youtubeUrl from 'youtube-url';
 import camelcaseKeys from 'camelcase-keys';
 import getYoutubeInfo from '../../helpers/getYoutubeInfo';
-import BlockControl from '../BlockControl';
 import VideoPreview from './preview';
 
 class VideoBlock extends Component {

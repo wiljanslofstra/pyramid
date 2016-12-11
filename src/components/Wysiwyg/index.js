@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import TinyMCE from 'react-tinymce';
-import BlockControl from '../BlockControl';
 import getTinyMCEConfig from '../../helpers/getTinyMCEConfig';
 
 class WysiwygBlock extends Component {

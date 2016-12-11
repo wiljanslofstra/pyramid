@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import BlockControl from '../BlockControl';
 
 class InputBlock extends Component {
   constructor(props) {

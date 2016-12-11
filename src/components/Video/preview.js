@@ -37,6 +37,8 @@ function videoPreview({ thumbnailUrl, url, title, authorName }) {
 
 videoPreview.propTypes = {
   url: PropTypes.string,
+  title: PropTypes.string,
+  authorName: PropTypes.string,
   thumbnailUrl: PropTypes.string,
 };
 
