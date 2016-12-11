@@ -5,18 +5,6 @@ import getYoutubeInfo from '../../helpers/getYoutubeInfo';
 import BlockControl from '../BlockControl';
 import VideoPreview from './preview';
 
-const title = 'Video';
-const icon = `
-  <svg
-    id="i-edit"
-    viewBox="0 0 32 32"
-    width="32" height="32"
-    fill="none"
-    stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-      <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
-  </svg>
-`;
-
 class VideoBlock extends Component {
   constructor(props) {
     super(props);
@@ -71,12 +59,6 @@ class VideoBlock extends Component {
 
     return (
       <div className="PyramidBlock">
-        <BlockControl
-          title={title}
-          icon={icon}
-          {...this.props}
-        />
-
         <div className="PyramidBlock__Content">
           <div className="PyramidBlock__Group">
             <input

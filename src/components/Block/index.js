@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { DragSource as dragSource, DropTarget as dropTarget } from 'react-dnd';
 import { cardTarget, cardSource } from '../Blocks/dragAndDrop';
 import BlockAddControl from '../BlockAddControl';
+import BlockControl from '../BlockControl';
 
 import DefaultText from '../DefaultText';
 import Wysiwyg from '../Wysiwyg';
@@ -9,10 +10,22 @@ import Input from '../Input';
 import Video from '../Video';
 
 const blocksList = {
-  defaultText: DefaultText,
-  wysiwyg: Wysiwyg,
-  input: Input,
-  video: Video,
+  defaultText: {
+    title: 'Default text',
+    element: DefaultText,
+  },
+  wysiwyg: {
+    title: 'Wysiwyg',
+    element: Wysiwyg,
+  },
+  input: {
+    title: 'Input',
+    element: Input,
+  },
+  video: {
+    title: 'Video',
+    element: Video,
+  },
 };
 
 @dropTarget('block', cardTarget, connect => ({
@@ -36,11 +49,17 @@ class Block extends Component {
       return null;
     }
 
-    const CustomBlock = blocksList[type];
+    const customBlock = blocksList[type];
+    const CustomBlock = customBlock.element;
+    const title = customBlock.title;
 
     // Return the element, and spread the data all over it
     return connectDragPreview(connectDropTarget(
       <div className="PyramidBlockWrapper">
+        <BlockControl
+          title={title}
+          {...this.props}
+        />
         <CustomBlock {...this.props} key={this.props.index} />
         <BlockAddControl />
       </div>
