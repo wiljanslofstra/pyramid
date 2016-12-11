@@ -1,0 +1,13 @@
+.PyramidImage {
+
+}
+  .PyramidImage__Dropzone {
+    width: 100%;
+    padding: 2rem;
+    border: 2px dashed #ddd;
+    text-align: center;
+
+    &:hover {
+      border-color: #aaa;
+    }
+  }
