@@ -1,22 +1,9 @@
 import React, { PropTypes } from 'react';
 
-function BlockControl({ title, icon, moveUp, moveDown, removeBlock, index, connectDragSource }) {
-  let iconHTML = null;
-
-  if (icon) {
-    const dangerousIcon = {
-      __html: icon,
-    };
-
-    iconHTML = (
-      <div className="PyramidControl__TitleIcon" dangerouslySetInnerHTML={dangerousIcon} />
-    );
-  }
-
+function BlockControl({ title, moveUp, moveDown, removeBlock, index, connectDragSource }) {
   return (
-    <div className={(iconHTML) ? 'PyramidControl has-icon' : 'PyramidControl'}>
+    <div className="PyramidControl">
       <div className="PyramidControl__Title">
-        {iconHTML}
         <div className="PyramidControl__TitleText">{title}</div>
       </div>
 
@@ -62,7 +49,6 @@ BlockControl.propTypes = {
   moveUp: PropTypes.func.isRequired,
   removeBlock: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
-  icon: PropTypes.string,
   index: PropTypes.number.isRequired,
   connectDragSource: PropTypes.func,
 };

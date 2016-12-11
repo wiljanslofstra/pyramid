@@ -1,6 +1,7 @@
 /* global document */
 
 import { filter } from 'lodash';
+import uuid from 'uuid/v4';
 import moveInArray from '../helpers/moveInArray';
 
 const stateElem = document.getElementById('blocks-state');
@@ -10,6 +11,7 @@ let initialState = { items: [] };
 if (stateElem && stateElem.value.trim()) {
   try {
     initialState = JSON.parse(stateElem.value);
+    initialState.items = initialState.items.map(item => ({ ...item, uuid: uuid() }));
   } catch (err) {
     console.error('There\'s an error in your JSON data', err); // eslint-disable-line
   }
@@ -65,6 +67,22 @@ const blocksReducers = (state = initialState, action) => {
       );
 
       return movedState;
+    }
+    case 'ADD_BLOCK' : {
+      const newState = Object.assign({}, state);
+      const items = newState.items.slice(0);
+
+      items.splice(action.payload.index, 0, {
+        type: action.payload.type,
+        data: {},
+        designOptions: {},
+        options: {},
+        uuid: uuid(),
+      });
+
+      newState.items = items;
+
+      return newState;
     }
     case 'REMOVE_BLOCK' : {
       const newState = Object.assign({}, state);

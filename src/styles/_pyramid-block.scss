@@ -29,3 +29,25 @@
       line-height: 40px;
       background: #fff;
     }
+
+  .PyramidBlockWrapper-enter {
+    opacity: 0.01;
+    transform: translateX(30px);
+  }
+
+  .PyramidBlockWrapper-enter.PyramidBlockWrapper-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-out, transform 500ms ease-out;
+    transform: translateX(0);
+  }
+
+  .PyramidBlockWrapper-leave {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .PyramidBlockWrapper-leave.PyramidBlockWrapper-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-out, transform 300ms ease-out;
+    transform: translateX(-30px);
+  }

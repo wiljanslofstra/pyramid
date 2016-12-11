@@ -4,8 +4,10 @@ import React, { Component, PropTypes } from 'react';
 import 'stretchy';
 import { DragDropContext as dragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import Block from '../Block';
+import Picker from '../Picker';
 
 Stretchy.selectors.filter = '.PyramidFormControl--stretch';
 
@@ -18,7 +20,7 @@ class Blocks extends Component {
 
   getAllBlocks() {
     return this.props.blocks.map((block, i) => (
-      <Block {...this.props} {...block} index={i} key={i} moveCard={this.moveCard} />
+      <Block {...this.props} {...block} index={i} key={block.uuid} moveCard={this.moveCard} />
     ));
   }
 
@@ -32,7 +34,15 @@ class Blocks extends Component {
 
     return (
       <div className="PyramidContainer">
-        {allBlocks}
+        <Picker />
+
+        <ReactCSSTransitionGroup
+          transitionName="PyramidBlockWrapper"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}
+        >
+          {allBlocks}
+        </ReactCSSTransitionGroup>
       </div>
     );
   }

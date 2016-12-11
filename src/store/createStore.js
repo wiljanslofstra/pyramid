@@ -4,6 +4,7 @@ import { applyMiddleware, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import makeRootReducer from './reducers';
 import blocksReducers from '../reducers/blocksReducers';
+import pickerReducers from '../reducers/pickerReducers';
 
 export default (initialState = {}, dev = __DEV__) => {
   // ======================================================
@@ -30,6 +31,7 @@ export default (initialState = {}, dev = __DEV__) => {
   const store = createStore(
     makeRootReducer({
       blocks: blocksReducers,
+      picker: pickerReducers,
     }),
     initialState,
     compose(

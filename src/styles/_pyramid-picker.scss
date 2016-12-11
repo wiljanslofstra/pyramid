@@ -1,0 +1,46 @@
+.PyramidPicker {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  max-width: 500px;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  box-shadow: 1px 1px 5px rgba(20,20,20,.3);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 9999;
+  transition: opacity .3s ease-out, visibility .3s ease-out;
+}
+  .PyramidPicker.is-visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .PyramidPicker__Button {
+    width: 25%;
+    display: inline-block;
+    vertical-align: top;
+    background: transparent;
+    border: 0;
+    text-align: center;
+    padding: 1rem .5rem;
+    border-right: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+
+    &:nth-child(4n) {
+      border-right: 0;
+    }
+
+    &:nth-child(-1n+4) {
+      border-top: 0;
+    }
+  }
+
+  .PyramidPicker__Close {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    background: transparent;
+    border: 0;
+  }
