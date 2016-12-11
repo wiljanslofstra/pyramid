@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import youtubeUrl from 'youtube-url';
-import camelcaseKeys from 'camelcase-keys';
+import camelCaseRecursive from 'camelcase-keys-recursive';
 import getYoutubeInfo from '../../helpers/getYoutubeInfo';
 import VideoPreview from './preview';
 
@@ -40,7 +40,7 @@ class VideoBlock extends Component {
   renderVideo(videoUrl) {
     if (youtubeUrl.valid(videoUrl)) {
       getYoutubeInfo(videoUrl, (data) => {
-        const camelcasedData = camelcaseKeys(data);
+        const camelcasedData = camelCaseRecursive(data);
 
         this.setState({
           videoUrl,

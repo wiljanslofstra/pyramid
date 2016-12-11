@@ -1,11 +1,15 @@
 /* eslint-disable */
 import React from 'react';
+import { Provider } from 'react-redux';
 import Blocks from 'components/Blocks/Blocks';
 import blocksIndex from 'components/Blocks';
+import uuid from 'uuid/v4';
 import { shallow, mount } from 'enzyme';
+import createStore from 'store/createStore';
 /* eslint-enable */
 
 const fakeProps = {
+  move: () => {},
   moveUp: () => {},
   moveDown: () => {},
   removeBlock: () => {},
@@ -22,16 +26,20 @@ describe('Blocks component', () => {
   });
 
   it('Should create a Blocks component with two items', () => {
+    const exampleStore = createStore();
+
     const element = mount(
-      <Blocks
-        blocks={[
-          Object.assign({}, fakeBlock),
-          Object.assign({}, fakeBlock),
-        ]} {...fakeProps}
-      />
+      <Provider store={exampleStore}>
+        <Blocks
+          blocks={[
+            Object.assign({}, fakeBlock, { uuid: uuid() }),
+            Object.assign({}, fakeBlock, { uuid: uuid() }),
+          ]} {...fakeProps}
+        />
+      </Provider>
     );
 
-    expect(element).to.have.exactly(2).descendants('.PyramidBlock');
+    expect(element.find('.PyramidBlockWrapper')).to.have.length(2);
   });
 
   it('Should return a connect method', () => {

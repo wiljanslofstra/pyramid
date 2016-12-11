@@ -24,11 +24,6 @@ describe('DefaultText component', () => {
     expect(element).to.have.className('PyramidBlock');
   });
 
-  it('Should have a control bar (.PyramidControl)', () => {
-    const element = mount(<DefaultText {...fakeProps} />);
-    expect(element.find('.PyramidControl')).to.be.present();
-  });
-
   it('Should have a content block (.PyramidBlock__Content)', () => {
     const element = mount(<DefaultText {...fakeProps} />);
     expect(element.find('.PyramidBlock__Content')).to.be.present();
