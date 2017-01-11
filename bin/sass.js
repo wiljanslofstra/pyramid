@@ -4,7 +4,6 @@ var fs = require('fs');
 var postcss = require('postcss');
 var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
-var reporter = require('postcss-reporter');
 
 // Paths
 var sassPath = path.resolve(__dirname, '../src/styles', 'core.scss');
@@ -19,7 +18,6 @@ function postCSS(css) {
   return postcss([
     autoprefixer(autoprefixerOptions),
     cssnano(cssnanoOptions),
-    reporter({ clearMessages: true }),
   ])
     .process(css, {
       from: outputPath,
