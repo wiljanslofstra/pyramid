@@ -10,11 +10,11 @@ export default {
     element: DefaultText,
   },
   wysiwyg: {
-    title: 'Wysiwyg',
+    title: 'WYSIWYG',
     element: Wysiwyg,
   },
   input: {
-    title: 'Input',
+    title: 'Single input',
     element: Input,
   },
   video: {

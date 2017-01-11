@@ -1,5 +1,11 @@
+.PyramidFormLabel {
+  display: block;
+  margin-bottom: .25rem;
+}
+
 .PyramidFormControl {
   width: 100%;
+  height: 38px;
   display: block;
   border-radius: $pyramid-control-radius;
   border: 1px solid $pyramid-control-border;

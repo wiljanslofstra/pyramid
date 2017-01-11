@@ -9,6 +9,8 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Block from '../Block';
 import Picker from '../Picker';
 
+const outputElement = document.getElementById('blocks-state');
+
 Stretchy.selectors.filter = '.PyramidFormControl--stretch';
 
 class Blocks extends Component {
@@ -16,6 +18,11 @@ class Blocks extends Component {
     super(props);
 
     this.moveCard = this.moveCard.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log(outputElement);
+    outputElement.value = JSON.stringify({ items: nextProps.blocks });
   }
 
   getAllBlocks() {

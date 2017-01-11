@@ -58,7 +58,7 @@ class ImageUpload extends Component {
       files,
     });
 
-    const simplifiedFiles = files.map(({ name, url, size }) => ({ name, url, size }));
+    const simplifiedFiles = files.map(({ name, url, size }) => ({ name, url, size, alt: name }));
 
     this.onEdit(simplifiedFiles, 'files');
   }
@@ -66,6 +66,16 @@ class ImageUpload extends Component {
   render() {
     const mb = 1000 * 1000;
     const maxFileSize = mb * 10; // 10 MB
+
+    let imageList = null;
+
+    if (typeof this.state.files !== 'undefined' && this.state.files.length) {
+      imageList = (
+        <ImageList files={this.state.files} onChange={(files) => {
+          this.onEdit(files, 'files');
+        }} />
+      );
+    }
 
     return (
       <div className="PyramidBlock">
@@ -79,7 +89,7 @@ class ImageUpload extends Component {
             <div>Try dropping some files here, or click to select files to upload.</div>
           </Dropzone>
 
-          <ImageList files={this.state.files} />
+          {imageList}
         </div>
       </div>
     );

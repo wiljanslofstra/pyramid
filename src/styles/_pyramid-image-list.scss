@@ -1,0 +1,37 @@
+.PyramidImageList {
+
+}
+
+.PyramidImageList__Row {
+  @include clearfix;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+
+  &:last-child {
+    margin-bottom: 0;
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.PyramidImageList__Thumb {
+  position: relative;
+  border: 1px solid #ddd;
+  width: 120px;
+  height: 120px;
+  float: left;
+}
+
+.PyramidImageList__Image {
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.PyramidImageList__Content {
+  padding-left: 135px;
+}
