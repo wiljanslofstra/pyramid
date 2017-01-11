@@ -71,9 +71,10 @@ class ImageUpload extends Component {
 
     if (typeof this.state.files !== 'undefined' && this.state.files.length) {
       imageList = (
-        <ImageList files={this.state.files} onChange={(files) => {
-          this.onEdit(files, 'files');
-        }} />
+        <ImageList
+          files={this.state.files}
+          onChange={(files) => { this.onEdit(files, 'files'); }}
+        />
       );
     }
 

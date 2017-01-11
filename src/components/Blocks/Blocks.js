@@ -1,4 +1,4 @@
-/* global Stretchy */
+/* global Stretchy, document */
 
 import React, { Component, PropTypes } from 'react';
 import 'stretchy';
@@ -21,7 +21,6 @@ class Blocks extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(outputElement);
     outputElement.value = JSON.stringify({ items: nextProps.blocks });
   }
 

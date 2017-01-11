@@ -2,11 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import uuid from 'uuid';
 
 class ImageList extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  onChange(e, file, index) {
+  onChange(e, index) {
     const val = e.currentTarget.value;
     const files = this.props.files.slice(0);
 
@@ -48,7 +44,7 @@ class ImageList extends Component {
               value={altVal}
               name="alt-text"
               id={imageId}
-              onChange={(e) => { this.onChange(e, file, i) }}
+              onChange={(e) => { this.onChange(e, i); }}
             />
           </div>
         </div>
@@ -61,10 +57,11 @@ class ImageList extends Component {
       </div>
     );
   }
-};
+}
 
 ImageList.propTypes = {
   files: PropTypes.array,
+  onChange: PropTypes.func,
 };
 
 export default ImageList;
