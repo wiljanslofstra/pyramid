@@ -24,9 +24,11 @@ class ImageUpload extends Component {
     uploadFiles(acceptedFiles, (uploadedFiles) => {
       // We're going to match the uploaded file to the non-upload file and add the
       // real url to the object
-      uploadedFiles.forEach(({ url, name }) => {
+      uploadedFiles.forEach((uploadedFile) => {
+        const { name, url } = uploadedFile;
+
         // Find the item in the files
-        const foundItem = find(this.props.data.files, { name });
+        let foundItem = find(this.props.data.files, { name });
 
         if (!foundItem) {
           return;
@@ -35,8 +37,7 @@ class ImageUpload extends Component {
         // Get the index of the found item
         const itemIndex = indexOf(files, foundItem);
 
-        // Add the 'real' url
-        foundItem.url = url;
+        foundItem = Object.assign({}, foundItem, uploadedFile);
 
         // Before inserting (with splice) we clone the array to prevent unwanted mutation
         const copyFiles = files.slice(0);

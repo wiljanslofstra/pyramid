@@ -8,7 +8,8 @@ $res = array();
 foreach($_FILES as $file) {
   array_push($res, array(
     'name' => $file['name'],
-    'url' => '/fakepath/' . $file['name']
+    'url' => '/fakepath/' . $file['name'],
+    'large_url' => '/fakepath/large/' . $file['name'],
   ));
 }
 
