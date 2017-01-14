@@ -11,7 +11,7 @@ module.exports = function(env) {
     resolve: {
       extensions: ['.js', '.jsx', '.json'],
     },
-    module: {},
+    module: { rules: [] },
   };
 
   // ------------------------------------
@@ -55,7 +55,7 @@ module.exports = function(env) {
   // Loaders
   // ------------------------------------
   // JavaScript / JSON
-  webpackConfig.module.loaders = [{
+  webpackConfig.module.rules = [{
     test: /\.(js|jsx)$/,
     exclude: /node_modules/,
     loader: 'babel-loader',

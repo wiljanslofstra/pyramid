@@ -1,5 +1,5 @@
 /* eslint-disable */
-import createStore from 'store/createStore';
+import createStore from '../../src/store/createStore';
 /* eslint-enable */
 
 describe('createStore', () => {

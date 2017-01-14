@@ -1,5 +1,5 @@
 /* eslint-disable */
-import asyncReducers from 'store/reducers';
+import asyncReducers from '../../src/store/reducers';
 /* eslint-enable */
 
 describe('Reducers wrapper', () => {

@@ -2,7 +2,7 @@
 import {
   moveUp, moveDown, addBlock, removeBlock, updateBlockData,
   MOVE_UP, MOVE_DOWN, ADD_BLOCK, REMOVE_BLOCK, UPDATE_BLOCK_DATA
-} from 'components/Blocks/actionTypes';
+} from '../../src/components/Blocks/actionTypes';
 /* eslint-enable */
 
 describe('Blocks actions', () => {

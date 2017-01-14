@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react';
-import DefaultText from 'components/DefaultText';
+import DefaultText from '../../src/components/DefaultText';
 import { shallow, mount } from 'enzyme';
 import sinon from 'sinon';
 /* eslint-enable */

@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react';
-import AppContainer from 'containers/AppContainer';
+import AppContainer from '../../src/containers/AppContainer';
 import { shallow, mount } from 'enzyme';
 /* eslint-enable */
 

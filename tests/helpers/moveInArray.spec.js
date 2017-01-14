@@ -1,5 +1,5 @@
 /* eslint-disable */
-import moveInArray from 'helpers/moveInArray';
+import moveInArray from '../../src/helpers/moveInArray';
 /* eslint-enable */
 
 describe('moveInArray', () => {

@@ -1,5 +1,5 @@
 /* eslint-disable */
-import blocksReducers from 'reducers/blocksReducers';
+import blocksReducers from '../../src/reducers/blocksReducers';
 /* eslint-enable */
 
 describe('Blocks reducer', () => {

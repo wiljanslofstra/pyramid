@@ -1,11 +1,11 @@
 /* eslint-disable */
 import React from 'react';
 import { Provider } from 'react-redux';
-import Blocks from 'components/Blocks/Blocks';
-import blocksIndex from 'components/Blocks';
+import Blocks from '../../src/components/Blocks/Blocks';
+import blocksIndex from '../../src/components/Blocks';
 import uuid from 'uuid/v4';
 import { shallow, mount } from 'enzyme';
-import createStore from 'store/createStore';
+import createStore from '../../src/store/createStore';
 /* eslint-enable */
 
 const fakeProps = {

@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react';
-import BlockControl from 'components/BlockControl';
+import BlockControl from '../../src/components/BlockControl';
 import { shallow, mount } from 'enzyme';
 import sinon from 'sinon';
 /* eslint-enable */

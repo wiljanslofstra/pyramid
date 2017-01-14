@@ -1,9 +1,6 @@
 const argv = require('yargs').argv;
 const config = require('../config');
 const webpackConfig = require('./webpack.config')('test');
-const debug = require('debug')('app:karma');
-
-debug('Creating configuration.');
 
 const karmaConfig = {
   basePath: '../', // project root in relation to bin/karma.js
@@ -34,10 +31,10 @@ const karmaConfig = {
       noParse: [
         /\/sinon\.js/,
       ],
-      loaders: webpackConfig.module.loaders.concat([
+      rules: webpackConfig.module.rules.concat([
         {
           test: /sinon(\\|\/)pkg(\\|\/)sinon\.js/,
-          loader: 'imports?define=>false,require=>false',
+          loader: 'imports-loader?define=>false,require=>false',
         },
       ]),
     },
@@ -48,10 +45,17 @@ const karmaConfig = {
       'react/lib/ExecutionEnvironment': true,
       'react/lib/ReactContext': 'window',
     }),
-    sassLoader: webpackConfig.sassLoader,
   },
+  // Webpack please don't spam the console when running in karma!
   webpackMiddleware: {
+    // webpack-dev-middleware configuration
+    // i.e.
     noInfo: true,
+    // and use stats to turn off verbose output
+    stats: {
+      // options i.e.
+      chunks: false
+    }
   },
   coverageReporter: {
     reporters: config.coverage_reporters,
@@ -61,14 +65,15 @@ const karmaConfig = {
 if (config.globals.__COVERAGE__) { // eslint-disable-line
   karmaConfig.reporters.push('coverage');
 
-  karmaConfig.webpack.module.preLoaders = [{
+  karmaConfig.webpack.module.rules.push({
+    enforce: 'pre',
     test: /\.(js|jsx)$/,
     include: new RegExp(config.dir_client),
-    loader: 'babel',
+    loader: 'babel-loader',
     query: Object.assign({}, config.compiler_babel, {
       plugins: (config.compiler_babel.plugins || []).concat('istanbul'),
     }),
-  }];
+  });
 }
 
 module.exports = cfg => cfg.set(karmaConfig);
