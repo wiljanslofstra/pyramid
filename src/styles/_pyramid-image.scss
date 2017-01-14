@@ -4,13 +4,13 @@
 
 .PyramidImage__Dropzone {
   width: 100%;
-  padding: 2rem;
-  border: 2px dashed #ddd;
-  text-align: center;
+  padding: $pyramid-image-dropzone-padding;
+  border: $pyramid-image-dropzone-border;
+  text-align: $pyramid-image-dropzone-text-align;
   margin-bottom: 1rem;
 
   &:hover {
-    border-color: #aaa;
+    border: $pyramid-image-dropzone-border-hover;
   }
 
   &:last-child {

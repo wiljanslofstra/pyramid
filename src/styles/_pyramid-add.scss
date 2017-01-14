@@ -1,12 +1,11 @@
 .PyramidAdd {
   position: relative;
-  padding: 1rem 0;
+  padding: $pyramid-add-padding;
   display: block;
-  background: transparent;
   border: 0;
   width: 100%;
-  color: #666;
-  background: rgba(255,255,255,.25);
+  color: $pyramid-add-text-color;
+  background: $pyramid-add-background;
   opacity: 0;
   transition: opacity .3s ease-out;
 
@@ -18,8 +17,8 @@
     position: absolute;
     left: 50%;
     top: 0;
-    text-align: center;
-    line-height: 2rem;
+    text-align: $pyramid-add-handle-text-align;
+    line-height: $pyramid-add-handle-line-height;
   }
     .PyramidAdd__Handle .fa {
 

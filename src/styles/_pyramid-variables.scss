@@ -1,6 +1,64 @@
 $pyramid-base-color: #bccbd2;
-$pyramid-background-color: $pyramid-base-color;
+$pyramid-background-color: #5c7cfa;
 $pyramid-border-radius: 0;
 
-$pyramid-control-radius: 3px;
-$pyramid-control-border: #bccbd2;
+$pyramid-form-control-height: 38px;
+$pyramid-form-control-radius: 3px;
+$pyramid-form-control-border: 1px solid #bccbd2;
+$pyramid-form-control-padding: .75rem;
+
+$pyramid-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+$pyramid-video-preview-color: #fff;
+$pyramid-video-preview-width: 140px;
+$pyramid-video-preview-thumbnail-max-width: 100%;
+$pyramid-video-preview-overlay: rgba(10,10,10,.7);
+$pyramid-video-preview-label-color: #aaa;
+$pyramid-video-preview-label-transform: uppercase;
+
+$pyramid-add-padding: 1rem 0;
+$pyramid-add-text-color: #666;
+$pyramid-add-background: rgba(255,255,255,.25);
+$pyramid-add-handle-line-height: 2rem;
+$pyramid-add-handle-text-align: center;
+
+$pyramid-picker-max-width: 320px;
+$pyramid-picker-background: #fff;
+$pyramid-picker-hover-background: #fafafa;
+$pyramid-picker-shadow: -1px 0 5px rgba(20,20,20,.3);
+$pyramid-picker-page-background: rgba(10,10,12,.6);
+$pyramid-picker-button-border: #ddd;
+$pyramid-picker-button-padding: 1rem .5rem;
+
+$pyramid-image-dropzone-border: 2px dashed #ddd;
+$pyramid-image-dropzone-border-hover: 2px dashed #aaa;
+$pyramid-image-dropzone-padding: 2rem;
+$pyramid-image-dropzone-text-align: center;
+
+$pyramid-block-content-background: #fff;
+$pyramid-block-content-padding: 1rem;
+$pyramid-block-handle-background: #fff;
+$pyramid-block-handle-size: 40px;
+
+$pyramid-container-max-width: 800px;
+$pyramid-container-spacing: 2rem;
+
+$pyramid-control-bar-background: #f8f8f8;
+$pyramid-control-bar-border: 1px solid $pyramid-base-color;
+$pyramid-control-padding: 1rem .5rem;
+$pyramid-controls-background: #fff;
+$pyramid-controls-padding: 0 .5rem;
+$pyramid-controls-text-color: #aaa;
+$pyramid-controls-text-color-hover: #888;
+$pyramid-controls-remove-color-hover: #d00;
+$pyramid-controls-icon-size: 24px;
+
+$pyramid-image-row-border: 1px solid #ddd;
+$pyramid-image-row-spacing: 1rem;
+$pyramid-image-thumb-border: 1px solid #ddd;
+$pyramid-image-thumb-size: 120px;
+$pyramid-image-content-max-width: 500px;
+$pyramid-image-control-background: #fff;
+$pyramid-image-control-size: 40px;
+$pyramid-image-control-border: 1px solid #ddd;
+$pyramid-image-control-color: #888;

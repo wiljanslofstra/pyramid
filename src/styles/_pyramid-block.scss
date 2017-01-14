@@ -1,53 +1,57 @@
 .PyramidBlock {
 }
-  .PyramidBlock__Content {
-    background: #fff;
-    padding: 1rem;
-  }
-    .PyramidBlock__Content--nopadding {
-      padding: 0;
-    }
-      .PyramidBlock__Content--nopadding > .mce-tinymce {
-        border: 0;
-      }
 
-  .PyramidBlock__Group {
-    margin-bottom: 1rem;
-  }
+.PyramidBlock__Content {
+  background: $pyramid-block-content-background;
+  padding: $pyramid-block-content-padding;
+}
 
-  .PyramidBlockWrapper:last-child .PyramidAdd {
-    opacity: 1;
-    background: transparent;
-  }
-    .PyramidBlockWrapper:last-child .PyramidAdd__Handle {
-      position: static;
-      margin: 0 auto;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 40px;
-      background: #fff;
-    }
+.PyramidBlock__Content--nopadding {
+  padding: 0;
+}
 
-  .PyramidBlockWrapper-enter {
-    opacity: 0.01;
-    transform: translateX(30px);
-  }
+.PyramidBlock__Content--nopadding > .mce-tinymce {
+  border: 0;
+}
 
-  .PyramidBlockWrapper-enter.PyramidBlockWrapper-enter-active {
-    opacity: 1;
-    transition: opacity 500ms ease-out, transform 500ms ease-out;
-    transform: translateX(0);
-  }
+.PyramidBlock__Group {
+  margin-bottom: 1rem;
+}
 
-  .PyramidBlockWrapper-leave {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.PyramidBlockWrapper:last-child .PyramidAdd {
+  opacity: 1;
+  background: transparent;
+}
 
-  .PyramidBlockWrapper-leave.PyramidBlockWrapper-leave-active {
-    opacity: 0.01;
-    transition: opacity 300ms ease-out, transform 300ms ease-out;
-    transform: translateX(-30px);
-  }
+.PyramidBlockWrapper:last-child .PyramidAdd__Handle {
+  position: static;
+  margin: 0 auto;
+  width: $pyramid-block-handle-size;
+  height: $pyramid-block-handle-size;
+  border-radius: 50%;
+  text-align: center;
+  line-height: $pyramid-block-handle-size;
+  background: $pyramid-block-handle-background;
+}
+
+.PyramidBlockWrapper-enter {
+  opacity: 0.01;
+  transform: translateX(30px);
+}
+
+.PyramidBlockWrapper-enter.PyramidBlockWrapper-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-out, transform 500ms ease-out;
+  transform: translateX(0);
+}
+
+.PyramidBlockWrapper-leave {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.PyramidBlockWrapper-leave.PyramidBlockWrapper-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+  transform: translateX(-30px);
+}

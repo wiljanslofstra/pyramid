@@ -1,59 +1,64 @@
 .PyramidControl {
   @include clearfix;
-  background: #f8f8f8;
+  background: $pyramid-control-bar-background;
   border-radius: $pyramid-border-radius $pyramid-border-radius 0 0;
-  border-bottom: 1px solid $pyramid-base-color;
+  border-bottom: $pyramid-control-bar-border;
 }
-  .PyramidControl__Controls {
-    float: right;
-    font-size: 0;
-    border-left: 1px solid $pyramid-base-color;
-    padding: 0 .5rem;
-    background: #fff;
+
+.PyramidControl__Controls {
+  float: right;
+  font-size: 0;
+  border-left: 1px solid $pyramid-base-color;
+  padding: $pyramid-controls-padding;
+  background: $pyramid-controls-background;
+}
+
+.PyramidControl__Control {
+  background: transparent;
+  border: 0;
+  color: $pyramid-controls-text-color;
+
+  display: inline-block;
+  font-size: 1rem;
+  padding: $pyramid-control-padding;
+  cursor: pointer;
+  user-select: none;
+
+  transition: color .3s ease-out;
+
+  &:hover {
+    color: $pyramid-controls-text-color-hover;
   }
-    .PyramidControl__Control {
-      background: transparent;
-      border: 0;
-      color: #aaa;
+}
 
-      display: inline-block;
-      font-size: 1rem;
-      padding: 1rem .5rem;
-      cursor: pointer;
-      user-select: none;
+.PyramidControl__Control--Remove:hover {
+  color: $pyramid-controls-remove-color-hover;
+}
 
-      transition: color .3s ease-out;
+.PyramidControl__Title {
+  position: relative;
+  padding: 1rem;
+  float: left;
 
-      &:hover {
-        color: #888;
-      }
-    }
-      .PyramidControl__Control--Remove:hover {
-        color: #d00;
-      }
-
-  .PyramidControl__Title {
-    position: relative;
-    padding: 1rem;
-    float: left;
-
-    .has-icon & {
-      padding-left: 50px;
-    }
+  .has-icon & {
+    padding-left: 50px;
   }
-    .PyramidControl__TitleIcon {
-      width: 24px;
-      height: 24px;
-      margin-right: .75rem;
-      position: absolute;
-      left: 1rem;
-      top: 50%;
-      margin-top: -12px;
-    }
-      .PyramidControl__TitleIcon img,
-      .PyramidControl__TitleIcon svg {
-        max-width: 100%;
-        max-height: 100%;
-        width: auto;
-        height: auto;
-      }
+}
+
+.PyramidControl__TitleIcon {
+  width: $pyramid-controls-icon-size;
+  height: $pyramid-controls-icon-size;
+  margin-right: .75rem;
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  margin-top: ($pyramid-controls-icon-size / 2) * -1;
+}
+
+.PyramidControl__TitleIcon img,
+.PyramidControl__TitleIcon svg {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}

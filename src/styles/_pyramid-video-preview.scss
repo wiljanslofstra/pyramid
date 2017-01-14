@@ -1,62 +1,66 @@
 .PyramidVideoPreview {
   display: table;
 }
-  .PyramidVideoPreview > * {
-    display: table-cell;
-    vertical-align: middle;
+
+.PyramidVideoPreview > * {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.PyramidVideoPreview__Thumbnail {
+  position: relative;
+  max-width: $pyramid-video-preview-width;
+  color: $pyramid-video-preview-color;
+  text-decoration: none;
+}
+
+.PyramidVideoPreview__ThumbnailImage {
+  max-width: $pyramid-video-preview-thumbnail-max-width;
+  display: block;
+}
+
+.PyramidVideoPreview__ThumbnailOverlay {
+  text-align: center;
+  padding: 0 1rem;
+  background: $pyramid-video-preview-overlay;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity .3s ease-out;
+  user-select: none;
+}
+
+.PyramidVideoPreview__ThumbnailOverlay div {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.PyramidVideoPreview__ThumbnailOverlay .fa {
+  display: block;
+  margin-bottom: .5rem;
+  font-size: 1.5rem;
+}
+
+.PyramidVideoPreview__Thumbnail:hover .PyramidVideoPreview__ThumbnailOverlay {
+  opacity: 1;
+}
+
+.PyramidVideoPreview__Content {
+  padding-left: 1rem;
+}
+
+.PyramidVideoPreview__ContentLabel {
+  color: $pyramid-video-preview-label-color;
+  margin-top: .5rem;
+  margin-bottom: .125rem;
+  text-transform: $pyramid-video-preview-label-transform;
+  font-size: .75rem;
+
+  &:first-child {
+    margin-top: 0;
   }
-
-  .PyramidVideoPreview__Thumbnail {
-    position: relative;
-    max-width: 140px;
-    color: #fff;
-    text-decoration: none;
-  }
-    .PyramidVideoPreview__ThumbnailImage {
-      max-width: 100%;
-      display: block;
-    }
-
-    .PyramidVideoPreview__ThumbnailOverlay {
-      text-align: center;
-      padding: 0 1rem;
-      background: rgba(10,10,10,.7);
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity .3s ease-out;
-      user-select: none;
-    }
-      .PyramidVideoPreview__ThumbnailOverlay div {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-
-      .PyramidVideoPreview__ThumbnailOverlay .fa {
-        display: block;
-        margin-bottom: .5rem;
-        font-size: 1.5rem;
-      }
-
-  .PyramidVideoPreview__Thumbnail:hover .PyramidVideoPreview__ThumbnailOverlay {
-    opacity: 1;
-  }
-
-  .PyramidVideoPreview__Content {
-    padding-left: 1rem;
-  }
-    .PyramidVideoPreview__ContentLabel {
-      color: #aaa;
-      margin-top: .5rem;
-      margin-bottom: .125rem;
-      text-transform: uppercase;
-      font-size: .75rem;
-
-      &:first-child {
-        margin-top: 0;
-      }
-    }
+}

@@ -5,14 +5,15 @@
 
 .PyramidFormControl {
   width: 100%;
-  height: 38px;
+  height: $pyramid-form-control-height;
   display: block;
-  border-radius: $pyramid-control-radius;
-  border: 1px solid $pyramid-control-border;
-  padding: .75rem;
+  border-radius: $pyramid-form-control-radius;
+  border: $pyramid-form-control-border;
+  padding: $pyramid-form-control-padding;
 }
 
 textarea.PyramidFormControl {
   resize: vertical;
   line-height: 1.4;
+  height: auto;
 }

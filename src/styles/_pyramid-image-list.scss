@@ -5,9 +5,9 @@
 .PyramidImageList__Row {
   @include clearfix;
   position: relative;
-  margin: 0 -1rem 1rem;
-  padding: 1rem 1rem 0;
-  border-top: 1px solid #ddd;
+  margin: 0 ($pyramid-image-row-spacing * -1) $pyramid-image-row-spacing;
+  padding: $pyramid-image-row-spacing $pyramid-image-row-spacing 0;
+  border-top: $pyramid-image-row-border;
 
   &:last-child {
     margin-bottom: 0;
@@ -18,9 +18,9 @@
 
 .PyramidImageList__Thumb {
   position: relative;
-  border: 1px solid #ddd;
-  width: 120px;
-  height: 120px;
+  border: $pyramid-image-thumb-border;
+  width: $pyramid-image-thumb-size;
+  height: $pyramid-image-thumb-size;
   float: left;
 }
 
@@ -34,8 +34,8 @@
 }
 
 .PyramidImageList__Content {
-  padding-left: 135px;
-  max-width: 500px;
+  padding-left: $pyramid-image-thumb-size + 15px;
+  max-width: $pyramid-image-content-max-width;
 }
 
 .PyramidImageList__Controls {
@@ -47,14 +47,13 @@
 .PyramidImageList__Control {
   display: inline-block;
   vertical-align: top;
-  border: 0;
-  background: #fff;
-  width: 40px;
-  height: 40px;
-  border: 1px solid #ddd;
+  background: $pyramid-image-control-background;
+  width: $pyramid-image-control-size;
+  height: $pyramid-image-control-size;
+  border: $pyramid-image-control-border;
   border-top: 0;
   border-right: 0;
-  color: #888;
+  color: $pyramid-image-control-color;
 
   &:hover {
     background-color: #eee;

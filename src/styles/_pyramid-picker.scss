@@ -4,9 +4,9 @@
   right: 0;
   width: 100%;
   height: 100%;
-  max-width: 320px;
-  background: #fff;
-  box-shadow: -1px 0 5px rgba(20,20,20,.3);
+  max-width: $pyramid-picker-max-width;
+  background: $pyramid-picker-background;
+  box-shadow: $pyramid-picker-shadow;
   z-index: 9999;
 }
 
@@ -22,34 +22,34 @@
   }
 }
 
-  .PyramidPicker__Bg {
-    position: fixed;
-    width: 3000px;
-    height: 100%;
-    top: 0;
-    right: 0;
-    z-index: 9998;
-    background: rgba(10,10,12,.6);
-  }
+.PyramidPicker__Bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: 9998;
+  background: $pyramid-picker-page-background;
+}
 
-  .PyramidPicker__Button {
-    background: transparent;
-    display: block;
-    width: 100%;
-    border: 0;
-    text-align: center;
-    padding: 1rem .5rem;
-    border-bottom: 1px solid #ddd;
+.PyramidPicker__Button {
+  background: transparent;
+  display: block;
+  width: 100%;
+  border: 0;
+  text-align: center;
+  padding: $pyramid-picker-button-padding;
+  border-bottom: 1px solid $pyramid-picker-button-border;
 
-    &:hover {
-      background-color: #fafafa;
-    }
+  &:hover {
+    background-color: $pyramid-picker-hover-background;
   }
+}
 
-  .PyramidPicker__Close {
-    position: absolute;
-    bottom: 100%;
-    right: 0;
-    background: transparent;
-    border: 0;
-  }
+.PyramidPicker__Close {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  background: transparent;
+  border: 0;
+}
