@@ -6,6 +6,9 @@ export default (url, cb) => {
   fetch(`${API_URL}${url}`)
     .then(res => res.json())
     .then((body) => {
-      cb(body);
+      cb(null, body);
+    })
+    .catch((err) => {
+      cb(err);
     });
 };

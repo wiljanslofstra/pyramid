@@ -92,7 +92,7 @@ describe('Blocks reducer', () => {
     expect(state).to.eql(expectedState);
   });
 
-  it('Should the block from state', () => {
+  it('Should remove the block from state', () => {
     // Initial state
     const givenState = { items: [{ text: 'test 1' }, { text: 'test 2' }, { text: 'test 3' }] };
 

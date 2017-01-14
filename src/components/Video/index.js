@@ -32,14 +32,22 @@ class VideoBlock extends Component {
   }
 
   updateVideo() {
-    if (typeof this.props.data.url !== 'undefined' && this.props.data.url !== this.state.videoUrl) {
+    if (
+      typeof this.props.data !== 'undefined' &&
+      typeof this.props.data.url !== 'undefined' &&
+      this.props.data.url !== this.state.videoUrl
+    ) {
       this.renderVideo(this.props.data.url);
     }
   }
 
   renderVideo(videoUrl) {
     if (youtubeUrl.valid(videoUrl)) {
-      getYoutubeInfo(videoUrl, (data) => {
+      getYoutubeInfo(videoUrl, (err, data) => {
+        if (err) {
+          return;
+        }
+
         const camelcasedData = camelCaseRecursive(data);
 
         this.setState({
