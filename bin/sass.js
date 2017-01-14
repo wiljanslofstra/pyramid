@@ -5,28 +5,23 @@ var postcss = require('postcss');
 var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
 
-// Paths
-var sassPath = path.resolve(__dirname, '../src/styles', 'core.scss');
-var outputPath = path.resolve(__dirname, '../dist', 'main.css');
-var mapPath = path.resolve(__dirname, '../src/static/styles', 'main.css.map');
-
 // Options
 var autoprefixerOptions = { browsers: ['last 2 version', 'ie >= 9', 'iOS >= 7', 'android >= 4.1'] };
 var cssnanoOptions = { autoprefixer: false, discardComments: { removeAllButFirst: true } };
 
-function postCSS(css) {
+function postCSS(css, file) {
   return postcss([
     autoprefixer(autoprefixerOptions),
     cssnano(cssnanoOptions),
   ])
     .process(css, {
-      from: outputPath,
-      to: outputPath,
+      from: file.outputPath,
+      to: file.outputPath,
       map: { inline: false },
     })
     .then(function (result) {
       // Write CSS file
-      fs.writeFile(outputPath, result.css, function(err) {
+      fs.writeFile(file.outputPath, result.css, function(err) {
         if (err) {
           console.log(err);
         }
@@ -34,22 +29,36 @@ function postCSS(css) {
 
       // Write sourcemap
       if (result.map) {
-        fs.writeFileSync(mapPath, result.map);
+        fs.writeFileSync(file.mapPath, result.map);
       }
     });
 }
 
 const runSass = function() {
-  sass.render({
-    file: sassPath,
-    outFile: outputPath,
-  }, function(error, result) {
-    if (!error) {
-      // Run PostCSS
-      postCSS(result.css);
-    } else {
-      console.log(error);
-    }
+  var files = [
+    {
+      sassPath: path.resolve(__dirname, '../src/styles', 'core.scss'),
+      outputPath: path.resolve(__dirname, '../dist', 'main.css'),
+      mapPath: path.resolve(__dirname, '../src/static/styles', 'main.css.map'),
+    }, {
+      sassPath: path.resolve(__dirname, '../src/styles', 'editor.scss'),
+      outputPath: path.resolve(__dirname, '../dist', 'editor.css'),
+      mapPath: path.resolve(__dirname, '../src/static/styles', 'editor.css.map'),
+    },
+  ];
+
+  files.forEach(function(file) {
+    sass.render({
+      file: file.sassPath,
+      outFile: file.outputPath,
+    }, function(error, result) {
+      if (!error) {
+        // Run PostCSS
+        postCSS(result.css, file);
+      } else {
+        console.log(error);
+      }
+    });
   });
 };
 

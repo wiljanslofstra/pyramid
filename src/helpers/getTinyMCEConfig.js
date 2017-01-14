@@ -9,4 +9,5 @@ export default {
   elementpath: false,
   menubar: false,
   min_height: 150,
+  content_css: '/dist/editor.css',
 };
