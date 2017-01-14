@@ -44,12 +44,15 @@ class Picker extends Component {
 
   render() {
     return (
-      <div className={`PyramidPicker ${((this.props.pickerVisible) ? ' is-visible' : '')}`}>
-        {this.state.renderedList}
+      <div>
+        <div className={`PyramidPicker ${((this.props.pickerVisible) ? ' is-visible' : '')}`}>
+          {this.state.renderedList}
+        </div>
 
-        <button className="PyramidPicker__Close" onClick={this.hidePicker} title="Close">
-          <i className="fa fa-times" />
-        </button>
+        <div
+          onClick={this.hidePicker}
+          className={`PyramidPicker__Bg  ${((this.props.pickerVisible) ? ' is-visible' : '')}`}
+        ></div>
       </div>
     );
   }

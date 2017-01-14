@@ -1,39 +1,48 @@
 .PyramidPicker {
   position: fixed;
-  top: 50%;
-  left: 50%;
+  top: 0;
+  right: 0;
   width: 100%;
-  max-width: 500px;
-  transform: translate(-50%, -50%);
+  height: 100%;
+  max-width: 320px;
   background: #fff;
-  box-shadow: 1px 1px 5px rgba(20,20,20,.3);
+  box-shadow: -1px 0 5px rgba(20,20,20,.3);
+  z-index: 9999;
+}
+
+.PyramidPicker,
+.PyramidPicker__Bg {
   opacity: 0;
   visibility: hidden;
-  z-index: 9999;
   transition: opacity .3s ease-out, visibility .3s ease-out;
-}
-  .PyramidPicker.is-visible {
+
+  &.is-visible {
     opacity: 1;
     visibility: visible;
   }
+}
+
+  .PyramidPicker__Bg {
+    position: fixed;
+    width: 3000px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: 9998;
+    background: rgba(10,10,12,.6);
+  }
 
   .PyramidPicker__Button {
-    width: 25%;
-    display: inline-block;
-    vertical-align: top;
     background: transparent;
+    display: block;
+    width: 100%;
     border: 0;
     text-align: center;
     padding: 1rem .5rem;
-    border-right: 1px solid #ddd;
-    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
 
-    &:nth-child(4n) {
-      border-right: 0;
-    }
-
-    &:nth-child(-1n+4) {
-      border-top: 0;
+    &:hover {
+      background-color: #fafafa;
     }
   }
 
