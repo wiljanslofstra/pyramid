@@ -1,0 +1,14 @@
+.PyramidDebug__Button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 0;
+  background: transparent;
+  color: $pyramid-debug-text-color;
+}
+
+.PyramidDebug__Code {
+  background: $pyramid-debug-code-background;
+  color: $pyramid-debug-code-text-color;
+  padding: 1rem;
+}

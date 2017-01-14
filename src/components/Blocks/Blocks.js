@@ -18,6 +18,7 @@ class Blocks extends Component {
     super(props);
 
     this.moveCard = this.moveCard.bind(this);
+    this.toggleDebug = this.toggleDebug.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -34,9 +35,29 @@ class Blocks extends Component {
     this.props.move(dragIndex, hoverIndex);
   }
 
+  toggleDebug() {
+    if (this.props.debug) {
+      this.props.disableDebug();
+    } else {
+      this.props.enableDebug();
+    }
+  }
+
   render() {
     // Create an array of React components for every item in the state
     const allBlocks = this.getAllBlocks.call(this);
+
+    let debugDiv = null;
+
+    if (this.props.debug) {
+      const jsonData = JSON.stringify(this.props.blocks, null, 4);
+
+      debugDiv = (
+        <pre className="PyramidDebug__Code">
+          {jsonData}
+        </pre>
+      );
+    }
 
     return (
       <div className="PyramidContainer">
@@ -49,6 +70,15 @@ class Blocks extends Component {
         >
           {allBlocks}
         </ReactCSSTransitionGroup>
+
+        <button
+          onClick={this.toggleDebug}
+          className="PyramidDebug__Button"
+        >
+          Debug
+        </button>
+
+        {debugDiv}
       </div>
     );
   }
@@ -57,6 +87,9 @@ class Blocks extends Component {
 Blocks.propTypes = {
   blocks: PropTypes.array,
   move: PropTypes.func,
+  debug: PropTypes.bool,
+  disableDebug: PropTypes.func,
+  enableDebug: PropTypes.func,
 };
 
 export default dragDropContext(HTML5Backend)(Blocks);

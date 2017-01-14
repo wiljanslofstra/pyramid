@@ -11,7 +11,11 @@ let initialState = { items: [] };
 if (stateElem && stateElem.value.trim()) {
   try {
     initialState = JSON.parse(stateElem.value);
+
+    // Add unique identifier to every item/block
     initialState.items = initialState.items.map(item => ({ ...item, uuid: uuid() }));
+
+    initialState.debug = false;
   } catch (err) {
     console.error('There\'s an error in your JSON data', err); // eslint-disable-line
   }
@@ -116,6 +120,12 @@ const blocksReducers = (state = initialState, action) => {
           return item;
         }),
       });
+    }
+    case 'ENABLE_DEBUG' : {
+      return Object.assign({}, state, { debug: true });
+    }
+    case 'DISABLE_DEBUG' : {
+      return Object.assign({}, state, { debug: false });
     }
     default:
       return state;

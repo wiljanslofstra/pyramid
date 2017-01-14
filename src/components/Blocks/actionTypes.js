@@ -4,6 +4,8 @@ export const MOVE = 'MOVE';
 export const ADD_BLOCK = 'ADD_BLOCK';
 export const REMOVE_BLOCK = 'REMOVE_BLOCK';
 export const UPDATE_BLOCK_DATA = 'UPDATE_BLOCK_DATA';
+export const ENABLE_DEBUG = 'ENABLE_DEBUG';
+export const DISABLE_DEBUG = 'DISABLE_DEBUG';
 
 export function moveUp(index) {
   return {
@@ -50,5 +52,17 @@ export function updateBlockData(data, index) {
       data,
       index,
     },
+  };
+}
+
+export function enableDebug() {
+  return {
+    type: ENABLE_DEBUG,
+  };
+}
+
+export function disableDebug() {
+  return {
+    type: DISABLE_DEBUG,
   };
 }
