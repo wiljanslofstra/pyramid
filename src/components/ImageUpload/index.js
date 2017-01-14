@@ -8,17 +8,17 @@ class ImageUpload extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      files: (typeof this.props.data.files !== 'undefined') ? this.props.data.files : [],
-    };
-
     this.onEdit = this.onEdit.bind(this);
     this.onDrop = this.onDrop.bind(this);
   }
 
   onDrop(acceptedFiles/* rejectedFiles */) {
+    const files = (typeof this.props.data.files !== 'undefined') ?
+      this.props.data.files.slice(0) :
+      [];
+
     // Immediately render the dropped images
-    this.updateFiles(this.state.files.concat(acceptedFiles));
+    this.updateFiles(files.concat(acceptedFiles));
 
     // Start uploading the accepted files
     uploadFiles(acceptedFiles, (uploadedFiles) => {
@@ -26,16 +26,20 @@ class ImageUpload extends Component {
       // real url to the object
       uploadedFiles.forEach(({ url, name }) => {
         // Find the item in the files
-        const foundItem = find(this.state.files, { name });
+        const foundItem = find(this.props.data.files, { name });
+
+        if (!foundItem) {
+          return;
+        }
 
         // Get the index of the found item
-        const itemIndex = indexOf(this.state.files, foundItem);
+        const itemIndex = indexOf(files, foundItem);
 
         // Add the 'real' url
         foundItem.url = url;
 
         // Before inserting (with splice) we clone the array to prevent unwanted mutation
-        const copyFiles = this.state.files.slice(0);
+        const copyFiles = files.slice(0);
 
         // Swap the old item with the new item
         copyFiles.splice(itemIndex, 1, foundItem);
@@ -54,12 +58,7 @@ class ImageUpload extends Component {
   }
 
   updateFiles(files) {
-    this.setState({
-      files,
-    });
-
     const simplifiedFiles = files.map(({ name, url, size }) => ({ name, url, size, alt: name }));
-
     this.onEdit(simplifiedFiles, 'files');
   }
 
@@ -69,10 +68,10 @@ class ImageUpload extends Component {
 
     let imageList = null;
 
-    if (typeof this.state.files !== 'undefined' && this.state.files.length) {
+    if (typeof this.props.data.files !== 'undefined' && this.props.data.files.length) {
       imageList = (
         <ImageList
-          files={this.state.files}
+          files={this.props.data.files}
           onChange={(files) => { this.onEdit(files, 'files'); }}
         />
       );

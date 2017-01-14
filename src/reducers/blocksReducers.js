@@ -99,15 +99,23 @@ const blocksReducers = (state = initialState, action) => {
       return newState;
     }
     case 'UPDATE_BLOCK_DATA' : {
-      const newState = Object.assign({}, state);
-      const items = newState.items.slice(0);
-      const item = items[action.payload.index];
+      const index = action.payload.index;
 
-      item.data = action.payload.data;
+      // Clone state
+      return Object.assign({}, state, {
+        // Overwrite items
+        items: state.items.map((item, i) => {
+          // If this item changed
+          if (i === index) {
+            // Clone the item and change it's data
+            return Object.assign({}, state.items[index], {
+              data: action.payload.data,
+            });
+          }
 
-      items[action.payload.index] = item;
-      newState.items = items;
-      return newState;
+          return item;
+        }),
+      });
     }
     default:
       return state;
