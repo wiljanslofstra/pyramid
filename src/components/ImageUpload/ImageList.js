@@ -83,17 +83,28 @@ class ImageList extends Component {
               onChange={(e) => { this.onChange(e, i); }}
             />
 
-            <button onClick={(e) => { this.onRemoveClick(e, i); }}>
-              Remove image
-            </button>
+            <div className="PyramidImageList__Controls">
+              <button
+                className="PyramidImageList__Control"
+                onClick={(e) => { this.onMoveClick(e, i, 'up'); }}
+              >
+                <i className="fa fa-chevron-up"></i>
+              </button>
 
-            <button onClick={(e) => { this.onMoveClick(e, i, 'up'); }}>
-              Up
-            </button>
+              <button
+                className="PyramidImageList__Control"
+                onClick={(e) => { this.onMoveClick(e, i, 'down'); }}
+              >
+                <i className="fa fa-chevron-down"></i>
+              </button>
 
-            <button onClick={(e) => { this.onMoveClick(e, i, 'down'); }}>
-              Down
-            </button>
+              <button
+                className="PyramidImageList__Control"
+                onClick={(e) => { this.onRemoveClick(e, i); }}
+              >
+                <i className="fa fa-times"></i>
+              </button>
+            </div>
           </div>
         </div>
       );

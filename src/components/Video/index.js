@@ -10,11 +10,13 @@ class VideoBlock extends Component {
 
     this.onChange = this.onEdit.bind(this);
 
-    this.state = {
+    this.emptyState = {
       previewElement: null,
       videoUrl: '',
       videoData: null,
     };
+
+    this.state = Object.assign({}, this.emptyState);
 
     this.updateVideo();
   }
@@ -43,21 +45,25 @@ class VideoBlock extends Component {
 
   renderVideo(videoUrl) {
     if (youtubeUrl.valid(videoUrl)) {
-      getYoutubeInfo(videoUrl, (err, data) => {
+      return getYoutubeInfo(videoUrl, (err, data) => {
         if (err) {
           return;
         }
 
-        const camelcasedData = camelCaseRecursive(data);
+        const videoData = camelCaseRecursive(data);
 
         this.setState({
           videoUrl,
-          videoData: camelcasedData,
+          videoData,
           previewElement: (
-            <VideoPreview {...camelcasedData} />
+            <VideoPreview {...videoData} />
           ),
         });
       });
+    }
+
+    if (this.state.videoUrl !== this.emptyState.videoUrl) {
+      this.setState(Object.assign({}, this.emptyState));
     }
   }
 

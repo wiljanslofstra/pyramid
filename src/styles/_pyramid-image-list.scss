@@ -4,9 +4,10 @@
 
 .PyramidImageList__Row {
   @include clearfix;
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #ddd;
+  position: relative;
+  margin: 0 -1rem 1rem;
+  padding: 1rem 1rem 0;
+  border-top: 1px solid #ddd;
 
   &:last-child {
     margin-bottom: 0;
@@ -34,4 +35,28 @@
 
 .PyramidImageList__Content {
   padding-left: 135px;
+  max-width: 500px;
+}
+
+.PyramidImageList__Controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.PyramidImageList__Control {
+  display: inline-block;
+  vertical-align: top;
+  border: 0;
+  background: #fff;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ddd;
+  border-top: 0;
+  border-right: 0;
+  color: #888;
+
+  &:hover {
+    background-color: #eee;
+  }
 }
