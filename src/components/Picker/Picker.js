@@ -49,10 +49,10 @@ class Picker extends Component {
           {this.state.renderedList}
         </div>
 
-        <div
+        <button
           onClick={this.hidePicker}
           className={`PyramidPicker__Bg  ${((this.props.pickerVisible) ? ' is-visible' : '')}`}
-        ></div>
+        />
       </div>
     );
   }

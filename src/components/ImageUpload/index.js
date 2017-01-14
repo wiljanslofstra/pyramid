@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Dropzone from 'react-dropzone';
-import { find, indexOf } from 'lodash';
+import { find, findIndex } from 'lodash';
 import ImageList from './ImageList';
 import uploadFiles from './uploadFiles';
 
@@ -13,29 +13,31 @@ class ImageUpload extends Component {
   }
 
   onDrop(acceptedFiles/* rejectedFiles */) {
-    const files = (typeof this.props.data.files !== 'undefined') ?
+    let files = (typeof this.props.data.files !== 'undefined') ?
       this.props.data.files.slice(0) :
       [];
 
+    files = files.concat(acceptedFiles);
+
     // Immediately render the dropped images
-    this.updateFiles(files.concat(acceptedFiles));
+    this.onEdit(files, 'files');
 
     // Start uploading the accepted files
     uploadFiles(acceptedFiles, (uploadedFiles) => {
       // We're going to match the uploaded file to the non-upload file and add the
       // real url to the object
       uploadedFiles.forEach((uploadedFile) => {
-        const { name, url } = uploadedFile;
+        const { name } = uploadedFile;
 
         // Find the item in the files
-        let foundItem = find(this.props.data.files, { name });
+        let foundItem = find(files, { name });
 
         if (!foundItem) {
           return;
         }
 
         // Get the index of the found item
-        const itemIndex = indexOf(files, foundItem);
+        const itemIndex = findIndex(files, file => (foundItem.name === file.name));
 
         foundItem = Object.assign({}, foundItem, uploadedFile);
 
@@ -45,7 +47,7 @@ class ImageUpload extends Component {
         // Swap the old item with the new item
         copyFiles.splice(itemIndex, 1, foundItem);
 
-        this.updateFiles(copyFiles);
+        this.onEdit(copyFiles, 'files');
       });
     });
   }
@@ -56,11 +58,6 @@ class ImageUpload extends Component {
     data[key] = val;
 
     this.props.updateBlockData(data, this.props.index);
-  }
-
-  updateFiles(files) {
-    const simplifiedFiles = files.map(({ name, url, size }) => ({ name, url, size, alt: name }));
-    this.onEdit(simplifiedFiles, 'files');
   }
 
   render() {

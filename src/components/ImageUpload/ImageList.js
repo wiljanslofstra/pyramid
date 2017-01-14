@@ -88,21 +88,21 @@ class ImageList extends Component {
                 className="PyramidImageList__Control"
                 onClick={(e) => { this.onMoveClick(e, i, 'up'); }}
               >
-                <i className="fa fa-chevron-up"></i>
+                <i className="fa fa-chevron-up" />
               </button>
 
               <button
                 className="PyramidImageList__Control"
                 onClick={(e) => { this.onMoveClick(e, i, 'down'); }}
               >
-                <i className="fa fa-chevron-down"></i>
+                <i className="fa fa-chevron-down" />
               </button>
 
               <button
                 className="PyramidImageList__Control"
                 onClick={(e) => { this.onRemoveClick(e, i); }}
               >
-                <i className="fa fa-times"></i>
+                <i className="fa fa-times" />
               </button>
             </div>
           </div>

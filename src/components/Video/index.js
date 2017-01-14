@@ -63,8 +63,10 @@ class VideoBlock extends Component {
     }
 
     if (this.state.videoUrl !== this.emptyState.videoUrl) {
-      this.setState(Object.assign({}, this.emptyState));
+      return this.setState(Object.assign({}, this.emptyState));
     }
+
+    return false;
   }
 
   render() {

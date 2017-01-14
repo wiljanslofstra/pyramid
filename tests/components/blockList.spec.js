@@ -6,6 +6,7 @@ describe('blockList', () => {
   });
 
   it('Should return the basic blocks', () => {
+    /* eslint-disable */
     expect(blockList.defaultText).to.not.be.undefined;
     expect(blockList.defaultText).to.be.instanceOf(Object);
 
@@ -14,5 +15,6 @@ describe('blockList', () => {
 
     expect(blockList.input).to.not.be.undefined;
     expect(blockList.input).to.be.instanceOf(Object);
+    /* eslint-enable */
   });
 });
