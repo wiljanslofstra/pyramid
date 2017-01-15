@@ -4,3 +4,7 @@ body {
   margin: 1rem;
   font-family: $pyramid-font-family;
 }
+
+body > *:first-child {
+  margin-top: 0;
+}
