@@ -29,6 +29,7 @@ class Customisable extends Component {
 
       const fieldProps = {
         key: i,
+        id: `${field.name}-${i}-${this.props.index}`,
         onChange: this.onEdit,
         data: dataForField,
         field,
@@ -60,6 +61,9 @@ class Customisable extends Component {
             <ImageField {...fieldProps} />
           );
         }
+        default : {
+          return null;
+        }
       }
     });
 
@@ -77,6 +81,7 @@ Customisable.propTypes = {
   updateBlockData: PropTypes.func.isRequired,
   index: PropTypes.number.isRequired,
   data: PropTypes.object,
+  blockData: PropTypes.object,
 };
 
 export default Customisable;

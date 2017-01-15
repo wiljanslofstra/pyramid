@@ -1,7 +1,6 @@
 /* global document */
 
-import { filter } from 'lodash';
-import uuid from 'uuid/v4';
+import { filter, uniqueId } from 'lodash';
 import moveInArray from '../helpers/moveInArray';
 
 const stateElem = document.getElementById('blocks-state');
@@ -13,7 +12,7 @@ if (stateElem && stateElem.value.trim()) {
     initialState = JSON.parse(stateElem.value);
 
     // Add unique identifier to every item/block
-    initialState.items = initialState.items.map(item => ({ ...item, uuid: uuid() }));
+    initialState.items = initialState.items.map(item => ({ ...item, uuid: uniqueId() }));
 
     initialState.debug = false;
   } catch (err) {
@@ -81,7 +80,7 @@ const blocksReducers = (state = initialState, action) => {
         data: {},
         designOptions: {},
         options: {},
-        uuid: uuid(),
+        uuid: uniqueId(),
       });
 
       newState.items = items;

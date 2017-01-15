@@ -25,6 +25,11 @@ class VideoBlock extends Component {
     this.updateVideo();
   }
 
+  onChange(event) {
+    this.props.onChange(event.target.value, 'url');
+    this.renderVideo(event.target.value);
+  }
+
   updateVideo() {
     if (
       typeof this.props.data !== 'undefined' &&
@@ -32,11 +37,6 @@ class VideoBlock extends Component {
     ) {
       this.renderVideo(this.props.data);
     }
-  }
-
-  onChange(event) {
-    this.props.onChange(event.target.value, 'url');
-    this.renderVideo(event.target.value);
   }
 
   renderVideo(videoUrl) {
@@ -71,11 +71,12 @@ class VideoBlock extends Component {
 
     return (
       <div className="PyramidBlock__ContentGroup">
-        <label>
+        <label htmlFor={this.props.id}>
           {field.label}
         </label>
 
         <input
+          id={this.props.id}
           type="text"
           className="PyramidFormControl"
           onChange={this.onChange}
@@ -90,11 +91,13 @@ class VideoBlock extends Component {
 
 VideoBlock.propTypes = {
   onChange: PropTypes.func.isRequired,
+  field: PropTypes.object.isRequired,
   data: PropTypes.string,
+  id: PropTypes.string.isRequired,
 };
 
 VideoBlock.defaultProps = {
-  data: {},
+  data: '',
 };
 
 export default VideoBlock;

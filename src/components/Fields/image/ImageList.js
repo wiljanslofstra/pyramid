@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import uuid from 'uuid';
+import { uniqueId } from 'lodash';
 import moveInArray from '../../../helpers/moveInArray';
 
 class ImageList extends Component {
@@ -59,7 +59,7 @@ class ImageList extends Component {
     const list = this.props.files.map((file, i) => {
       const preview = (typeof file.preview !== 'undefined') ? file.preview : file.url;
 
-      const imageId = `alt-text-${uuid()}`;
+      const imageId = `alt-text-${uniqueId()}`;
 
       const altVal = (typeof file.alt !== 'undefined') ? file.alt : file.name;
 

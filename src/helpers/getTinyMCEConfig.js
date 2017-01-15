@@ -14,7 +14,7 @@ export default {
     { title: 'noopener', value: 'noopener' },
     { title: 'nofollow', value: 'nofollow' },
   ],
-  paste_word_valid_elements: "b,strong,i,em,h1,h2,h3,h4",
+  paste_word_valid_elements: 'b,strong,i,em,h1,h2,h3,h4',
   autoresize_bottom_margin: 0,
   autoresize_min_height: 180,
   autoresize_max_height: 800,

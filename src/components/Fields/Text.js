@@ -1,26 +1,26 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 
-const Text = ({ data, field, onChange }) => {
-  return (
-    <div className="PyramidBlock__ContentGroup">
-      <label>
-        {field.label}
-      </label>
+const Text = ({ data, field, onChange, id }) => (
+  <div className="PyramidBlock__ContentGroup">
+    <label htmlFor={id}>
+      {field.label}
+    </label>
 
-      <textarea
-        className="PyramidFormControl PyramidFormControl--stretch"
-        placeholder={field.placeholder}
-        onChange={(event) => { onChange(event.target.value, field.name); }}
-        value={(data !== undefined) ? data : ''}
-      />
-    </div>
-  );
-}
+    <textarea
+      id={id}
+      className="PyramidFormControl PyramidFormControl--stretch"
+      placeholder={field.placeholder}
+      onChange={(event) => { onChange(event.target.value, field.name); }}
+      value={(data !== undefined) ? data : ''}
+    />
+  </div>
+);
 
 Text.propTypes = {
   onChange: PropTypes.func.isRequired,
   field: PropTypes.object.isRequired,
   data: PropTypes.string,
+  id: PropTypes.string.isRequired,
 };
 
 Text.defaultProps = {

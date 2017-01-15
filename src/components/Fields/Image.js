@@ -52,7 +52,7 @@ class ImageUpload extends Component {
     });
   }
 
-  onEdit(val, key) {
+  onEdit(val) {
     this.props.onChange(val, this.props.field.name);
   }
 

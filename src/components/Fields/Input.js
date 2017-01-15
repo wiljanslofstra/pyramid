@@ -1,27 +1,27 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 
-const Input = ({ data, field, onChange }) => {
-  return (
-    <div className="PyramidBlock__ContentGroup">
-      <label>
-        {field.label}
-      </label>
+const Input = ({ data, field, onChange, id }) => (
+  <div className="PyramidBlock__ContentGroup">
+    <label htmlFor={id}>
+      {field.label}
+    </label>
 
-      <input
-        type="text"
-        className="PyramidFormControl"
-        placeholder={field.placeholder}
-        onChange={(event) => { onChange(event.target.value, field.name); }}
-        value={(data !== undefined) ? data : ''}
-      />
-    </div>
-  );
-};
+    <input
+      id={id}
+      type="text"
+      className="PyramidFormControl"
+      placeholder={field.placeholder}
+      onChange={(event) => { onChange(event.target.value, field.name); }}
+      value={(data !== undefined) ? data : ''}
+    />
+  </div>
+);
 
 Input.propTypes = {
   onChange: PropTypes.func.isRequired,
   field: PropTypes.object.isRequired,
   data: PropTypes.string,
+  id: PropTypes.string.isRequired,
 };
 
 Input.defaultProps = {
