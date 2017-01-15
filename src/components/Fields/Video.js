@@ -2,13 +2,11 @@ import React, { Component, PropTypes } from 'react';
 import youtubeUrl from 'youtube-url';
 import camelCaseRecursive from 'camelcase-keys-recursive';
 import getYoutubeInfo from '../../helpers/getYoutubeInfo';
-import VideoPreview from './preview';
+import VideoPreview from './video/videoPreview';
 
 class VideoBlock extends Component {
   constructor(props) {
     super(props);
-
-    this.onChange = this.onEdit.bind(this);
 
     this.emptyState = {
       previewElement: null,
@@ -18,6 +16,8 @@ class VideoBlock extends Component {
 
     this.state = Object.assign({}, this.emptyState);
 
+    this.onChange = this.onChange.bind(this);
+
     this.updateVideo();
   }
 
@@ -25,22 +25,18 @@ class VideoBlock extends Component {
     this.updateVideo();
   }
 
-  onEdit(val, key) {
-    const data = Object.assign({}, this.props.data);
-
-    data[key] = val;
-
-    this.props.updateBlockData(data, this.props.index);
-  }
-
   updateVideo() {
     if (
       typeof this.props.data !== 'undefined' &&
-      typeof this.props.data.url !== 'undefined' &&
-      this.props.data.url !== this.state.videoUrl
+      this.props.data !== this.state.videoUrl
     ) {
-      this.renderVideo(this.props.data.url);
+      this.renderVideo(this.props.data);
     }
+  }
+
+  onChange(event) {
+    this.props.onChange(event.target.value, 'url');
+    this.renderVideo(event.target.value);
   }
 
   renderVideo(videoUrl) {
@@ -70,31 +66,35 @@ class VideoBlock extends Component {
   }
 
   render() {
-    const data = (typeof this.props.data !== 'undefined') ? this.props.data : {};
+    const data = this.props.data;
+    const field = this.props.field;
 
     return (
-      <div className="PyramidBlock">
-        <div className="PyramidBlock__Content">
-          <div className="PyramidBlock__Group">
-            <input
-              type="text"
-              className="PyramidFormControl"
-              onChange={(event) => { this.onChange(event.target.value, 'url'); }}
-              value={(data.url !== undefined) ? data.url : ''}
-            />
-          </div>
+      <div className="PyramidBlock__ContentGroup">
+        <label>
+          {field.label}
+        </label>
 
-          {this.state.previewElement}
-        </div>
+        <input
+          type="text"
+          className="PyramidFormControl"
+          onChange={this.onChange}
+          value={(data !== undefined) ? data : ''}
+        />
+
+        {this.state.previewElement}
       </div>
     );
   }
 }
 
 VideoBlock.propTypes = {
-  updateBlockData: PropTypes.func.isRequired,
-  index: PropTypes.number.isRequired,
-  data: PropTypes.object,
+  onChange: PropTypes.func.isRequired,
+  data: PropTypes.string,
+};
+
+VideoBlock.defaultProps = {
+  data: {},
 };
 
 export default VideoBlock;

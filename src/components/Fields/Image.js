@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import Dropzone from 'react-dropzone';
 import { find, findIndex } from 'lodash';
-import ImageList from './ImageList';
-import uploadFiles from './uploadFiles';
+import ImageList from './image/ImageList';
+import uploadFiles from './image/uploadFiles';
 
 class ImageUpload extends Component {
   constructor(props) {
@@ -13,8 +13,8 @@ class ImageUpload extends Component {
   }
 
   onDrop(acceptedFiles/* rejectedFiles */) {
-    let files = (typeof this.props.data.files !== 'undefined') ?
-      this.props.data.files.slice(0) :
+    let files = (typeof this.props.data !== 'undefined') ?
+      this.props.data.slice(0) :
       [];
 
     files = files.concat(acceptedFiles);
@@ -53,11 +53,7 @@ class ImageUpload extends Component {
   }
 
   onEdit(val, key) {
-    const data = Object.assign({}, this.props.data);
-
-    data[key] = val;
-
-    this.props.updateBlockData(data, this.props.index);
+    this.props.onChange(val, this.props.field.name);
   }
 
   render() {
@@ -66,38 +62,36 @@ class ImageUpload extends Component {
 
     let imageList = null;
 
-    if (typeof this.props.data.files !== 'undefined' && this.props.data.files.length) {
+    if (typeof this.props.data !== 'undefined' && this.props.data.length) {
       imageList = (
         <ImageList
-          files={this.props.data.files}
+          files={this.props.data}
           onChange={(files) => { this.onEdit(files, 'files'); }}
         />
       );
     }
 
     return (
-      <div className="PyramidBlock">
-        <div className="PyramidBlock__Content">
-          <Dropzone
-            className="PyramidImage__Dropzone"
-            onDrop={this.onDrop}
-            maxSize={maxFileSize}
-            accept="image/*"
-          >
-            <div>Try dropping some files here, or click to select files to upload.</div>
-          </Dropzone>
+      <div className="PyramidBlock__ContentGroup">
+        <Dropzone
+          className="PyramidImage__Dropzone"
+          onDrop={this.onDrop}
+          maxSize={maxFileSize}
+          accept="image/*"
+        >
+          <div>Try dropping some files here, or click to select files to upload.</div>
+        </Dropzone>
 
-          {imageList}
-        </div>
+        {imageList}
       </div>
     );
   }
 }
 
 ImageUpload.propTypes = {
-  updateBlockData: PropTypes.func.isRequired,
-  index: PropTypes.number.isRequired,
-  data: PropTypes.object,
+  onChange: PropTypes.func.isRequired,
+  field: PropTypes.object.isRequired,
+  data: PropTypes.array,
 };
 
 export default ImageUpload;

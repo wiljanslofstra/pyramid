@@ -4,6 +4,7 @@ import { cardTarget, cardSource } from '../Blocks/dragAndDrop';
 import BlockAddControl from '../BlockAddControl';
 import BlockControl from '../BlockControl';
 import blocksList from '../blockList';
+import Customisable from '../Customisable';
 
 @dropTarget('block', cardTarget, connect => ({
   connectDropTarget: connect.dropTarget(),
@@ -38,7 +39,6 @@ class Block extends Component {
     }
 
     const customBlock = blocksList[type];
-    const CustomBlock = customBlock.element;
     const title = customBlock.title;
 
     // Return the element, and spread the data all over it
@@ -48,7 +48,7 @@ class Block extends Component {
           title={title}
           {...this.props}
         />
-        <CustomBlock {...this.props} key={this.props.index} />
+        <Customisable {...this.props} blockData={customBlock} key={this.props.index} />
         <BlockAddControl onClick={this.onAddClick} />
       </div>
     ));

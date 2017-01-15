@@ -3,7 +3,18 @@
 
 .PyramidBlock__Content {
   background: $pyramid-block-content-background;
+  padding: 0 $pyramid-block-content-padding;
+}
+
+.PyramidBlock__ContentGroup {
+  margin-left: $pyramid-block-content-padding * -1;
+  margin-right: $pyramid-block-content-padding * -1;
   padding: $pyramid-block-content-padding;
+  border-bottom: 1px solid #ddd;
+
+  &:last-child {
+    border-bottom: 0;
+  }
 }
 
 .PyramidBlock__Content--nopadding {
