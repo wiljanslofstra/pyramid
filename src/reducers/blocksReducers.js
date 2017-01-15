@@ -78,7 +78,6 @@ const blocksReducers = (state = initialState, action) => {
       items.splice(action.payload.index, 0, {
         type: action.payload.type,
         data: {},
-        designOptions: {},
         options: {},
         uuid: uniqueId(),
       });
