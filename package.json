@@ -15,7 +15,8 @@
     "webpack-dev": "NODE_ENV=development webpack --watch --env=development --config=config/webpack.config.js",
     "webpack-prod": "NODE_ENV=production webpack --watch --env=production --config=config/webpack.config.js",
     "test": "NODE_ENV=test npm run test-runner",
-    "test-runner": "node ./node_modules/karma/bin/karma start config/karma.conf --watch",
+    "test-watch": "NODE_ENV=test npm run test-runner --watch",
+    "test-runner": "node ./node_modules/karma/bin/karma start config/karma.conf",
     "sass": "nodemon --exec \"node bin/sass\" src/styles/*",
     "codecov": "cat coverage/*/lcov.info | codecov",
     "copy:tinymcetheme": "cp -r node_modules/tinymce/themes/modern dist/tinymce_theme"
