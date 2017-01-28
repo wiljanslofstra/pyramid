@@ -1,11 +1,16 @@
-const vimeoRegex = /https?:\/\/(?:www\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|)(\d+)(?:$|\/|\?)/; // eslint-disable-line
+const vimeoRegex = /(http|https)?:\/\/(www\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|)(\d+)(?:|\/\?)/; // eslint-disable-line
 
 export default (url) => {
   const match = url.match(vimeoRegex);
 
-  if (typeof match === 'undefined' || typeof match[3] === 'undefined') {
+  if (
+    typeof match === 'undefined' ||
+    !match ||
+    typeof match[4] === 'undefined' ||
+    !match[4]
+  ) {
     return false;
   }
 
-  return match[3];
+  return match[4];
 };

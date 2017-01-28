@@ -62,7 +62,11 @@ class VideoBlock extends Component {
       const videoId = getVimeoId(videoUrl);
 
       if (videoId) {
-        getVimeoInfo(videoId, (data) => {
+        getVimeoInfo(videoId, (err, data) => {
+          if (err) {
+            return;
+          }
+
           const videoData = {
             thumbnailUrl: data.thumbnail_medium,
             url: data.url,

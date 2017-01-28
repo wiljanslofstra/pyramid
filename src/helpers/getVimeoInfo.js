@@ -6,9 +6,9 @@ export default (id, cb) => {
     .then((data) => {
       if (typeof data === 'undefined' || !data.length) return;
 
-      cb(data[0]);
+      cb(null, data[0]);
     })
-    .catch(() => {
-      // console.log(err);
+    .catch((err) => {
+      cb(err);
     });
 };
