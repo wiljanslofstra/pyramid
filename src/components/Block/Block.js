@@ -3,7 +3,7 @@ import { DragSource as dragSource, DropTarget as dropTarget } from 'react-dnd';
 import { cardTarget, cardSource } from '../Blocks/dragAndDrop';
 import BlockAddControl from '../BlockAddControl';
 import BlockControl from '../BlockControl';
-import blocksList from '../blockList';
+import blocksConfig from '../../blocksConfig';
 import Customisable from '../Customisable';
 
 @dropTarget('block', cardTarget, connect => ({
@@ -33,12 +33,12 @@ class Block extends Component {
     const { connectDropTarget, connectDragPreview } = this.props;
 
     // Check if a component is available to handle this data type
-    if (typeof blocksList[type] === 'undefined') {
+    if (typeof blocksConfig[type] === 'undefined') {
       console.log(`The block type '${type}' is not defined`); // eslint-disable-line
       return null;
     }
 
-    const customBlock = blocksList[type];
+    const customBlock = blocksConfig[type];
     const title = customBlock.title;
 
     // Return the element, and spread the data all over it

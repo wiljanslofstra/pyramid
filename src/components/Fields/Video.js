@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import youtubeUrl from 'youtube-url';
-import camelCaseRecursive from 'camelcase-keys-recursive';
 import getYoutubeInfo from '../../helpers/getYoutubeInfo';
+import getVimeoInfo from '../../helpers/getVimeoInfo';
+import getVimeoId from '../../helpers/getVimeoId';
+import camelCaseRecursive from 'camelcase-keys-recursive';
 import VideoPreview from './video/videoPreview';
 
 class VideoBlock extends Component {
@@ -56,6 +58,27 @@ class VideoBlock extends Component {
           ),
         });
       });
+    } else if (videoUrl.indexOf('vimeo.com') >= 0) {
+      const videoId = getVimeoId(videoUrl);
+
+      if (videoId) {
+        getVimeoInfo(videoId, (data) => {
+          const videoData = {
+            thumbnailUrl: data.thumbnail_medium,
+            url: data.url,
+            title: data.title,
+            authorName: data.user_name,
+          };
+
+          this.setState({
+            videoUrl,
+            videoData,
+            previewElement: (
+              <VideoPreview {...videoData} />
+            ),
+          });
+        });
+      }
     }
 
     if (this.state.videoUrl !== this.emptyState.videoUrl) {

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { map } from 'lodash';
-import blocksList from '../blockList';
+import blocksConfig from '../../blocksConfig';
 
 class Picker extends Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class Picker extends Component {
   }
 
   renderList() {
-    const renderedList = map(blocksList, (item, key) => (
+    const renderedList = map(blocksConfig, (item, key) => (
       <button
         className="PyramidPicker__Button"
         key={key}
