@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import youtubeUrl from 'youtube-url';
+import camelCaseRecursive from 'camelcase-keys-recursive';
 import getYoutubeInfo from '../../helpers/getYoutubeInfo';
 import getVimeoInfo from '../../helpers/getVimeoInfo';
 import getVimeoId from '../../helpers/getVimeoId';
-import camelCaseRecursive from 'camelcase-keys-recursive';
 import VideoPreview from './video/videoPreview';
 
 class VideoBlock extends Component {

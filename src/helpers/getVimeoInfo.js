@@ -1,3 +1,5 @@
+/* global fetch */
+
 export default (id, cb) => {
   fetch(`http://vimeo.com/api/v2/video/${id}.json`)
     .then(res => res.json())
@@ -7,6 +9,6 @@ export default (id, cb) => {
       cb(data[0]);
     })
     .catch((err) => {
-      console.log(err);
+      // console.log(err);
     });
-}
+};
