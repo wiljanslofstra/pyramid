@@ -4,7 +4,7 @@ import getTinyMCEConfig from '../../helpers/getTinyMCEConfig';
 
 const Wysiwyg = ({ data, field, onChange, id }) => (
   <div className="PyramidBlock__ContentGroup">
-    <label htmlFor={id}>
+    <label className="PyramidLabel" htmlFor={id}>
       {field.label}
     </label>
 

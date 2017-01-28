@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 const Text = ({ data, field, onChange, id }) => (
   <div className="PyramidBlock__ContentGroup">
-    <label htmlFor={id}>
+    <label className="PyramidLabel" htmlFor={id}>
       {field.label}
     </label>
 

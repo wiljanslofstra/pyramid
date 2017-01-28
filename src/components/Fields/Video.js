@@ -71,7 +71,7 @@ class VideoBlock extends Component {
 
     return (
       <div className="PyramidBlock__ContentGroup">
-        <label htmlFor={this.props.id}>
+        <label className="PyramidLabel" htmlFor={this.props.id}>
           {field.label}
         </label>
 

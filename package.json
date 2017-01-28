@@ -11,6 +11,7 @@
     "clean": "rimraf dist",
     "lint": "eslint src tests",
     "start": "npm run webpack-dev & npm run sass",
+    "production": "npm run webpack-prod & npm run sass",
     "webpack-dev": "NODE_ENV=development webpack --watch --env=development --config=build/webpack.config.js",
     "webpack-prod": "NODE_ENV=production webpack --watch --env=production --config=build/webpack.config.js",
     "test": "NODE_ENV=test npm run test-runner",

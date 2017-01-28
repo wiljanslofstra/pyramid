@@ -31,6 +31,9 @@ function postCSS(css, file) {
       if (result.map) {
         fs.writeFileSync(file.mapPath, result.map);
       }
+    })
+    .catch(function(err) {
+      console.log(err);
     });
 }
 
@@ -39,11 +42,11 @@ const runSass = function() {
     {
       sassPath: path.resolve(__dirname, '../src/styles', 'core.scss'),
       outputPath: path.resolve(__dirname, '../dist', 'main.css'),
-      mapPath: path.resolve(__dirname, '../src/static/styles', 'main.css.map'),
+      mapPath: path.resolve(__dirname, '../dist', 'main.css.map'),
     }, {
       sassPath: path.resolve(__dirname, '../src/styles', 'editor.scss'),
       outputPath: path.resolve(__dirname, '../dist', 'editor.css'),
-      mapPath: path.resolve(__dirname, '../src/static/styles', 'editor.css.map'),
+      mapPath: path.resolve(__dirname, '../dist', 'editor.css.map'),
     },
   ];
 
