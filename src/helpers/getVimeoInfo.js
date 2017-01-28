@@ -8,7 +8,7 @@ export default (id, cb) => {
 
       cb(data[0]);
     })
-    .catch((err) => {
+    .catch(() => {
       // console.log(err);
     });
 };
