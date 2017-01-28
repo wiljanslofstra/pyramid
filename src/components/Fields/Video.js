@@ -1,9 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import youtubeUrl from 'youtube-url';
-import camelCaseRecursive from 'camelcase-keys-recursive';
-import getYoutubeInfo from '../../helpers/getYoutubeInfo';
-import getVimeoInfo from '../../helpers/getVimeoInfo';
-import getVimeoId from '../../helpers/getVimeoId';
+import getVideoInfo from '../../helpers/getVideoInfo';
 import VideoPreview from './video/videoPreview';
 
 class VideoBlock extends Component {
@@ -42,48 +38,19 @@ class VideoBlock extends Component {
   }
 
   renderVideo(videoUrl) {
-    if (youtubeUrl.valid(videoUrl)) {
-      return getYoutubeInfo(videoUrl, (err, data) => {
-        if (err) {
-          return;
-        }
-
-        const videoData = camelCaseRecursive(data);
-
-        this.setState({
-          videoUrl,
-          videoData,
-          previewElement: (
-            <VideoPreview {...videoData} />
-          ),
-        });
-      });
-    } else if (videoUrl.indexOf('vimeo.com') >= 0) {
-      const videoId = getVimeoId(videoUrl);
-
-      if (videoId) {
-        getVimeoInfo(videoId, (err, data) => {
-          if (err) {
-            return;
-          }
-
-          const videoData = {
-            thumbnailUrl: data.thumbnail_medium,
-            url: data.url,
-            title: data.title,
-            authorName: data.user_name,
-          };
-
-          this.setState({
-            videoUrl,
-            videoData,
-            previewElement: (
-              <VideoPreview {...videoData} />
-            ),
-          });
-        });
+    getVideoInfo(videoUrl, (err, data) => {
+      if (err) {
+        return;
       }
-    }
+
+      this.setState({
+        videoUrl,
+        data,
+        previewElement: (
+          <VideoPreview {...data} />
+        ),
+      });
+    });
 
     if (this.state.videoUrl !== this.emptyState.videoUrl) {
       return this.setState(Object.assign({}, this.emptyState));
