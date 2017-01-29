@@ -3,6 +3,7 @@ import Dropzone from 'react-dropzone';
 import { find, findIndex } from 'lodash';
 import ImageList from './image/ImageList';
 import uploadFiles from './image/uploadFiles';
+import i18n from '../../helpers/i18n';
 
 class ImageUpload extends Component {
   constructor(props) {
@@ -83,7 +84,7 @@ class ImageUpload extends Component {
           maxSize={maxFileSize}
           accept="image/*"
         >
-          <div>Try dropping some files here, or click to select files to upload.</div>
+          <div>{i18n.get('dropzone_text')}</div>
         </Dropzone>
 
         {imageList}
@@ -96,7 +97,7 @@ ImageUpload.propTypes = {
   onChange: PropTypes.func.isRequired,
   field: PropTypes.object.isRequired,
   data: PropTypes.array,
-  id: PropTypes.number,
+  id: PropTypes.string,
 };
 
 export default ImageUpload;

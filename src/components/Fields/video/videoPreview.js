@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import i18n from '../../../helpers/i18n';
 
 function videoPreview({ thumbnailUrl, url, title, authorName }) {
   return (
@@ -9,14 +10,14 @@ function videoPreview({ thumbnailUrl, url, title, authorName }) {
         <div className="PyramidVideoPreview__ThumbnailOverlay">
           <div>
             <i className="fa fa-external-link" />
-            Show video in new window
+            {i18n.get('video_new_window')}
           </div>
         </div>
       </a>
 
       <div className="PyramidVideoPreview__Content">
         <div className="PyramidVideoPreview__ContentLabel">
-          Video title
+          {i18n.get('video_title')}
         </div>
 
         <div className="PyramidVideoPreview__ContentTitle">
@@ -24,7 +25,7 @@ function videoPreview({ thumbnailUrl, url, title, authorName }) {
         </div>
 
         <div className="PyramidVideoPreview__ContentLabel">
-          Author
+          {i18n.get('video_author')}
         </div>
 
         <div className="PyramidVideoPreview__ContentAuthor">

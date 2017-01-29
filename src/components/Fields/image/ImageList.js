@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { uniqueId } from 'lodash';
 import moveInArray from '../../../helpers/moveInArray';
+import i18n from '../../../helpers/i18n';
 
 class ImageList extends Component {
   constructor(props) {
@@ -71,7 +72,7 @@ class ImageList extends Component {
 
           <div className="PyramidImageList__Content">
             <label htmlFor={imageId} className="PyramidFormLabel">
-              Alternative text
+              {i18n.get('alternative_text')}
             </label>
 
             <input

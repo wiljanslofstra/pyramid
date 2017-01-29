@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import i18n from '../../helpers/i18n';
 
 function BlockControl({ title, moveUp, moveDown, removeBlock, index, connectDragSource }) {
   return (
@@ -11,7 +12,7 @@ function BlockControl({ title, moveUp, moveDown, removeBlock, index, connectDrag
         <button
           className="PyramidControl__Control PyramidControl__Control--Remove"
           onClick={() => removeBlock(index)}
-          title="Remove"
+          title={i18n.get('remove')}
         >
           <i className="fa fa-times" />
         </button>
@@ -19,7 +20,7 @@ function BlockControl({ title, moveUp, moveDown, removeBlock, index, connectDrag
         <button
           className="PyramidControl__Control PyramidControl__Control--Up"
           onClick={() => moveUp(index)}
-          title="Move up"
+          title={i18n.get('move_up')}
         >
           <i className="fa fa-chevron-up" />
         </button>
@@ -27,7 +28,7 @@ function BlockControl({ title, moveUp, moveDown, removeBlock, index, connectDrag
         <button
           className="PyramidControl__Control PyramidControl__Control--Down"
           onClick={() => moveDown(index)}
-          title="Move down"
+          title={i18n.get('move_down')}
         >
           <i className="fa fa-chevron-down" />
         </button>
