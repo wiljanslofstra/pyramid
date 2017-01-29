@@ -1,18 +1,19 @@
 .PyramidImageList {
-
+  background-color: #f6f6f6;
+  border: $pyramid-image-row-border;
+  margin-top: -2px;
 }
 
 .PyramidImageList__Row {
   @include clearfix;
   position: relative;
-  margin: 0 ($pyramid-image-row-spacing * -1) $pyramid-image-row-spacing;
-  padding: $pyramid-image-row-spacing $pyramid-image-row-spacing 0;
-  border-top: $pyramid-image-row-border;
+  margin: 0;
+  padding: $pyramid-image-row-spacing;
+  border-bottom: $pyramid-image-row-border;
 
   &:last-child {
     margin-bottom: 0;
     border-bottom: 0;
-    padding-bottom: 0;
   }
 }
 
@@ -22,6 +23,7 @@
   width: $pyramid-image-thumb-size;
   height: $pyramid-image-thumb-size;
   float: left;
+  background-color: #fff;
 }
 
 .PyramidImageList__Image {

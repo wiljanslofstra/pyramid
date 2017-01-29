@@ -73,6 +73,11 @@ export default {
         type: 'text',
         placeholder: 'Your content',
         defaultValue: '',
+      }, {
+        name: 'files',
+        label: 'Images',
+        type: 'image',
+        defaultValue: [],
       },
     ],
   },
