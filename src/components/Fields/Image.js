@@ -73,6 +73,10 @@ class ImageUpload extends Component {
 
     return (
       <div className="PyramidBlock__ContentGroup">
+        <label className="PyramidLabel" htmlFor={this.props.id}>
+          {this.props.field.label}
+        </label>
+
         <Dropzone
           className="PyramidImage__Dropzone"
           onDrop={this.onDrop}
@@ -92,6 +96,7 @@ ImageUpload.propTypes = {
   onChange: PropTypes.func.isRequired,
   field: PropTypes.object.isRequired,
   data: PropTypes.array,
+  id: PropTypes.number,
 };
 
 export default ImageUpload;
