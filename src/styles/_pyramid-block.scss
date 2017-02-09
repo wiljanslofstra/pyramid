@@ -33,12 +33,14 @@
   margin-bottom: 1rem;
 }
 
-.PyramidBlockWrapper:last-child .PyramidAdd {
+.PyramidBlockWrapper:last-child .PyramidAdd,
+.PyramidAdd--Large {
   opacity: 1;
   background: transparent;
 }
 
-.PyramidBlockWrapper:last-child .PyramidAdd__Handle {
+.PyramidBlockWrapper:last-child .PyramidAdd__Handle,
+.PyramidAdd--Large .PyramidAdd__Handle {
   position: static;
   margin: 0 auto;
   width: $pyramid-block-handle-size;

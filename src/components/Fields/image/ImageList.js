@@ -58,7 +58,7 @@ class ImageList extends Component {
 
   render() {
     const list = this.props.files.map((file, i) => {
-      const preview = (typeof file.preview !== 'undefined') ? file.preview : file.url;
+      const preview = (typeof file.url !== 'undefined') ? file.url : file.preview;
 
       const imageId = `alt-text-${uniqueId()}`;
 
@@ -88,6 +88,7 @@ class ImageList extends Component {
               <button
                 className="PyramidImageList__Control"
                 onClick={(e) => { this.onMoveClick(e, i, 'up'); }}
+                type="button"
               >
                 <i className="fa fa-chevron-up" />
               </button>
@@ -95,6 +96,7 @@ class ImageList extends Component {
               <button
                 className="PyramidImageList__Control"
                 onClick={(e) => { this.onMoveClick(e, i, 'down'); }}
+                type="button"
               >
                 <i className="fa fa-chevron-down" />
               </button>
@@ -102,6 +104,7 @@ class ImageList extends Component {
               <button
                 className="PyramidImageList__Control"
                 onClick={(e) => { this.onRemoveClick(e, i); }}
+                type="button"
               >
                 <i className="fa fa-times" />
               </button>

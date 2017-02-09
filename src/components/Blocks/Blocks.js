@@ -5,6 +5,7 @@ import 'stretchy';
 import { DragDropContext as dragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import BlockAddControl from '../BlockAddControl';
 
 import Block from '../Block';
 import Picker from '../Picker';
@@ -19,6 +20,7 @@ class Blocks extends Component {
 
     this.moveCard = this.moveCard.bind(this);
     this.toggleDebug = this.toggleDebug.bind(this);
+    this.onAddClick = this.onAddClick.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -29,6 +31,11 @@ class Blocks extends Component {
     return this.props.blocks.map((block, i) => (
       <Block {...this.props} {...block} index={i} key={block.uuid} moveCard={this.moveCard} />
     ));
+  }
+
+  onAddClick() {
+    this.props.insertAtIndex(this.props.index);
+    this.props.showPicker();
   }
 
   moveCard(dragIndex, hoverIndex) {
@@ -59,6 +66,14 @@ class Blocks extends Component {
       );
     }
 
+    let blockAddControl = null;
+
+    if (!allBlocks.length) {
+      blockAddControl = (
+        <BlockAddControl type="lg" onClick={this.onAddClick} />
+      );
+    }
+
     return (
       <div className="PyramidContainer">
         <Picker />
@@ -71,9 +86,12 @@ class Blocks extends Component {
           {allBlocks}
         </ReactCSSTransitionGroup>
 
+        {blockAddControl}
+
         <button
           onClick={this.toggleDebug}
           className="PyramidDebug__Button"
+          type="button"
         >
           Debug
         </button>

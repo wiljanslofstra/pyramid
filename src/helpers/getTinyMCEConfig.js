@@ -9,7 +9,7 @@ export default {
   elementpath: false,
   menubar: false,
   min_height: 150,
-  content_css: '/dist/editor.css',
+  content_css: '/assets/admin/plugins/pyramid-blocks/dist/editor.css',
   rel_list: [
     { title: 'noopener', value: 'noopener' },
     { title: 'nofollow', value: 'nofollow' },

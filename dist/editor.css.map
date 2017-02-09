@@ -1,0 +1,1 @@
+{"version":3,"sources":["editor.css"],"names":[],"mappings":"AAAA,KACE,WAAa,CAAE,AAEjB,kBACE,YAAc,CAAE","file":"editor.css","sourcesContent":["body {\n  margin: 15px; }\n\nbody > *:first-child {\n  margin-top: 0; }\n"]}

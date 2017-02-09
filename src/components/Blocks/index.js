@@ -3,6 +3,10 @@ import Blocks from './Blocks';
 import {
   moveUp, moveDown, move, addBlock, removeBlock, updateBlockData, enableDebug, disableDebug,
 } from './actionTypes';
+import {
+  showPicker,
+  insertAtIndex,
+} from '../Block/actionTypes';
 
 const mapDispatchToProps = {
   moveUp,
@@ -13,6 +17,8 @@ const mapDispatchToProps = {
   updateBlockData,
   enableDebug,
   disableDebug,
+  showPicker,
+  insertAtIndex,
 };
 
 const mapStateToProps = state => ({

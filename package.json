@@ -53,6 +53,7 @@
     "normalize.css": "^4.1.1",
     "react": "^15.4.1",
     "react-addons-css-transition-group": "^15.4.1",
+    "react-autocomplete": "^1.4.0",
     "react-dnd": "^2.1.4",
     "react-dnd-html5-backend": "^2.1.2",
     "react-dom": "^15.4.1",

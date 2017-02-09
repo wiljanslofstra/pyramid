@@ -5,6 +5,7 @@ import InputField from '../Fields/Input';
 import VideoField from '../Fields/Video';
 import WysiwygField from '../Fields/Wysiwyg';
 import ImageField from '../Fields/Image';
+import AutocompleteField from '../Fields/Autocomplete';
 
 class Customisable extends Component {
   constructor(props) {
@@ -59,6 +60,11 @@ class Customisable extends Component {
         case 'image' : {
           return (
             <ImageField {...fieldProps} />
+          );
+        }
+        case 'autocomplete' : {
+          return (
+            <AutocompleteField {...fieldProps} />
           );
         }
         default : {

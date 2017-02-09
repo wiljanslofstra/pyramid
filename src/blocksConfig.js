@@ -1,36 +1,40 @@
 export default {
-  defaultText: {
-    title: 'Default text',
-    schema: [
-      {
-        name: 'text',
-        label: 'Content',
-        type: 'text',
-        placeholder: 'Your content',
-        defaultValue: '',
-      },
-    ],
-  },
   wysiwyg: {
-    title: 'WYSIWYG',
+    title: 'Tekst',
     schema: [
       {
         name: 'text',
         label: 'Content',
         type: 'wysiwyg',
-        placeholder: 'Your content',
+        placeholder: '',
         defaultValue: '',
       },
     ],
   },
-  input: {
-    title: 'Single input',
+  twocols: {
+    title: 'Twee kolommen',
     schema: [
       {
-        name: 'text',
-        label: 'Input',
+        name: 'title_one',
+        label: 'Koptekst kolom 1',
         type: 'input',
-        placeholder: 'Your content',
+        defaultValue: '',
+      }, {
+        name: 'text_one',
+        label: 'Content kolom 1',
+        type: 'wysiwyg',
+        placeholder: '',
+        defaultValue: '',
+      }, {
+        name: 'title_two',
+        label: 'Koptekst kolom 2',
+        type: 'input',
+        defaultValue: '',
+      }, {
+        name: 'text_two',
+        label: 'Content kolom 2',
+        type: 'wysiwyg',
+        placeholder: '',
         defaultValue: '',
       },
     ],
@@ -40,44 +44,155 @@ export default {
     schema: [
       {
         name: 'url',
-        label: 'Video URL',
+        label: 'Video URL (YouTube of Vimeo)',
         type: 'video',
-        placeholder: 'Your video URL',
+        placeholder: 'YouTube of Vimeo URL',
         defaultValue: '',
       },
     ],
   },
-  imageUpload: {
-    title: 'Image',
+  slider: {
+    title: 'Slider',
     schema: [
       {
         name: 'files',
-        label: 'Images',
+        label: 'Afbeeldingen (bij voorkeur hetzelfde formaat)',
         type: 'image',
         defaultValue: [],
       },
     ],
   },
-  customTest: {
-    title: 'Text block',
+  fullImage: {
+    title: 'Volledige breedte afbeelding',
     schema: [
       {
-        name: 'heading',
-        label: 'Heading',
-        type: 'input',
-        placeholder: 'Your heading',
+        name: 'files',
+        label: 'Afbeelding (bij voorkeur: 1400px x 700px)',
+        type: 'image',
+        defaultValue: [],
+      },
+      {
+        name: 'content',
+        label: 'Content',
+        type: 'wysiwyg',
         defaultValue: '',
+      },
+    ],
+  },
+  readMore: {
+    title: 'Lees ook',
+    schema: [
+      {
+        name: 'input',
+        label: 'Zoek artikel',
+        type: 'autocomplete',
+        defaultValue: '',
+        api: '/admin/article/find',
+      },
+    ],
+  },
+  entries: {
+    title: 'Foto wedstrijd',
+    schema: [
+      {
+        name: 'input',
+        label: 'Wedstrijd zoeken',
+        type: 'autocomplete',
+        defaultValue: '',
+        api: '/admin/competition/find',
+      },
+    ],
+  },
+  imageLeft: {
+    title: 'Afbeelding links + tekst',
+    schema: [
+      {
+        name: 'files',
+        label: 'Afbeelding',
+        type: 'image',
+        defaultValue: [],
       }, {
         name: 'content',
         label: 'Content',
-        type: 'text',
-        placeholder: 'Your content',
+        type: 'wysiwyg',
         defaultValue: '',
-      }, {
+      },
+    ],
+  },
+  imageRight: {
+    title: 'Afbeelding rechts + tekst',
+    schema: [
+      {
         name: 'files',
-        label: 'Images',
+        label: 'Afbeelding',
         type: 'image',
         defaultValue: [],
+      }, {
+        name: 'content',
+        label: 'Content',
+        type: 'wysiwyg',
+        defaultValue: '',
+      },
+    ],
+  },
+  image: {
+    title: 'Enkele afbeelding',
+    schema: [
+      {
+        name: 'files',
+        label: 'Afbeelding',
+        type: 'image',
+        defaultValue: [],
+      },
+    ],
+  },
+  callToAction: {
+    title: 'Call to action',
+    schema: [
+      {
+        name: 'title',
+        label: 'Koptekst',
+        type: 'input',
+        defaultValue: '',
+      },
+      {
+        name: 'content',
+        label: 'Content',
+        type: 'wysiwyg',
+        defaultValue: '',
+      },
+      {
+        name: 'btn_text',
+        label: 'Knop tekst',
+        type: 'input',
+        defaultValue: '',
+      },
+      {
+        name: 'btn_url',
+        label: 'Knop URL',
+        type: 'input',
+        defaultValue: '',
+      },
+    ],
+  },
+  personQuote: {
+    title: 'Quote met persoon',
+    schema: [
+      {
+        name: 'files',
+        label: 'Afbeelding',
+        type: 'image',
+        defaultValue: [],
+      }, {
+        name: 'content',
+        label: 'Quote tekst',
+        type: 'wysiwyg',
+        defaultValue: '',
+      }, {
+        name: 'author',
+        label: 'Quote auteur',
+        type: 'input',
+        defaultValue: '',
       },
     ],
   },

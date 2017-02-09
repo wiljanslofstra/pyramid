@@ -34,6 +34,7 @@ class Picker extends Component {
         className="PyramidPicker__Button"
         key={key}
         onClick={() => { this.onItemClick(key); }}
+        type="button"
       >
         {item.title}
       </button>
@@ -52,6 +53,7 @@ class Picker extends Component {
         <button
           onClick={this.hidePicker}
           className={`PyramidPicker__Bg  ${((this.props.pickerVisible) ? ' is-visible' : '')}`}
+          type="button"
         />
       </div>
     );

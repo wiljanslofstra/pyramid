@@ -2,7 +2,7 @@ import en from '../languages/en';
 import nl from '../languages/nl';
 
 export default {
-  lang: 'en',
+  lang: 'nl',
 
   languages: {
     en,

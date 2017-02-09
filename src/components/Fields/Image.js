@@ -25,6 +25,9 @@ class ImageUpload extends Component {
 
     // Start uploading the accepted files
     uploadFiles(acceptedFiles, (uploadedFiles) => {
+      // Before inserting (with splice) we clone the array to prevent unwanted mutation
+      const copyFiles = files.slice(0);
+
       // We're going to match the uploaded file to the non-upload file and add the
       // real url to the object
       uploadedFiles.forEach((uploadedFile) => {
@@ -42,14 +45,11 @@ class ImageUpload extends Component {
 
         foundItem = Object.assign({}, foundItem, uploadedFile);
 
-        // Before inserting (with splice) we clone the array to prevent unwanted mutation
-        const copyFiles = files.slice(0);
-
         // Swap the old item with the new item
         copyFiles.splice(itemIndex, 1, foundItem);
-
-        this.onEdit(copyFiles, 'files');
       });
+
+      this.onEdit(copyFiles, 'files');
     });
   }
 
