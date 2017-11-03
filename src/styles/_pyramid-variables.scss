@@ -1,11 +1,11 @@
-$pyramid-base-color: #bccbd2;
-$pyramid-background-color: #5c7cfa;
+$pyramid-base-color: #bbb;
+$pyramid-background-color: #f58220;
 $pyramid-border-radius: 0;
 
 $pyramid-form-control-height: 38px;
 $pyramid-form-control-radius: 3px;
-$pyramid-form-control-border: 1px solid #bccbd2;
-$pyramid-form-control-padding: .75rem;
+$pyramid-form-control-border: 1px solid #bbb;
+$pyramid-form-control-padding: 14px;
 
 $pyramid-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
@@ -16,10 +16,10 @@ $pyramid-video-preview-overlay: rgba(10,10,10,.7);
 $pyramid-video-preview-label-color: #aaa;
 $pyramid-video-preview-label-transform: uppercase;
 
-$pyramid-add-padding: 1rem 0;
+$pyramid-add-padding: 16px 0;
 $pyramid-add-text-color: #666;
 $pyramid-add-background: rgba(255,255,255,.25);
-$pyramid-add-handle-line-height: 2rem;
+$pyramid-add-handle-line-height: 32px;
 $pyramid-add-handle-text-align: center;
 
 $pyramid-picker-max-width: 320px;
@@ -36,7 +36,7 @@ $pyramid-image-dropzone-padding: 2rem;
 $pyramid-image-dropzone-text-align: center;
 
 $pyramid-block-content-background: #fff;
-$pyramid-block-content-padding: 1rem;
+$pyramid-block-content-padding: 16px;
 $pyramid-block-handle-background: #fff;
 $pyramid-block-handle-size: 40px;
 
@@ -47,7 +47,7 @@ $pyramid-control-bar-background: #f8f7f6;
 $pyramid-control-bar-border: 1px solid $pyramid-base-color;
 $pyramid-control-padding: 1rem .5rem;
 $pyramid-controls-background: #fff;
-$pyramid-controls-padding: 0 .5rem;
+$pyramid-controls-padding: 0 10px;
 $pyramid-controls-text-color: #aaa;
 $pyramid-controls-text-color-hover: #888;
 $pyramid-controls-remove-color-hover: #d00;

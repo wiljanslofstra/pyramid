@@ -13,6 +13,11 @@
   max-width: $pyramid-video-preview-width;
   color: $pyramid-video-preview-color;
   text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $pyramid-video-preview-color;
+  }
 }
 
 .PyramidVideoPreview__ThumbnailImage {
@@ -42,8 +47,8 @@
 
 .PyramidVideoPreview__ThumbnailOverlay .fa {
   display: block;
-  margin-bottom: .5rem;
-  font-size: 1.5rem;
+  margin-bottom: 8px;
+  font-size: 14px;
 }
 
 .PyramidVideoPreview__Thumbnail:hover .PyramidVideoPreview__ThumbnailOverlay {
@@ -59,7 +64,7 @@
   margin-top: .5rem;
   margin-bottom: .125rem;
   text-transform: $pyramid-video-preview-label-transform;
-  font-size: .75rem;
+  font-size: 12px;
 
   &:first-child {
     margin-top: 0;

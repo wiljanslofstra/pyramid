@@ -1,36 +1,24 @@
 export default {
-  defaultText: {
-    title: 'Default text',
-    schema: [
-      {
-        name: 'text',
-        label: 'Content',
-        type: 'text',
-        placeholder: 'Your content',
-        defaultValue: '',
-      },
-    ],
-  },
   wysiwyg: {
-    title: 'WYSIWYG',
+    title: 'Tekst',
     schema: [
       {
         name: 'text',
         label: 'Content',
         type: 'wysiwyg',
-        placeholder: 'Your content',
+        placeholder: '',
         defaultValue: '',
       },
     ],
   },
-  input: {
-    title: 'Single input',
+  defaultText: {
+    title: 'Tekst',
     schema: [
       {
         name: 'text',
-        label: 'Input',
-        type: 'input',
-        placeholder: 'Your content',
+        label: 'Content',
+        type: 'wysiwyg',
+        placeholder: '',
         defaultValue: '',
       },
     ],
@@ -47,37 +35,43 @@ export default {
       },
     ],
   },
-  imageUpload: {
-    title: 'Image',
+  slider: {
+    title: 'Slider',
     schema: [
       {
         name: 'files',
-        label: 'Images',
+        label: 'Afbeeldingen (bij voorkeur hetzelfde formaat)',
         type: 'image',
         defaultValue: [],
+        uploadURL: '/upload.php',
       },
     ],
   },
-  customTest: {
-    title: 'Text block',
+  quote: {
+    title: 'Quote',
     schema: [
       {
         name: 'heading',
-        label: 'Heading',
+        label: 'Quote kopje',
         type: 'input',
-        placeholder: 'Your heading',
-        defaultValue: '',
+        defaultValue: 'Uitdaging',
       }, {
         name: 'content',
-        label: 'Content',
-        type: 'text',
-        placeholder: 'Your content',
+        label: 'Quote',
+        type: 'wysiwyg',
         defaultValue: '',
-      }, {
+      },
+    ],
+  },
+  images: {
+    title: 'Afbeeldingen',
+    schema: [
+      {
         name: 'files',
-        label: 'Images',
+        label: 'Afbeeldingen (bij voorkeur hetzelfde formaat)',
         type: 'image',
         defaultValue: [],
+        uploadURL: '/upload.php',
       },
     ],
   },

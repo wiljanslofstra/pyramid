@@ -1,7 +1,12 @@
 .PyramidContainer {
   max-width: $pyramid-container-max-width;
-  padding-top: $pyramid-container-spacing;
   padding-bottom: $pyramid-container-spacing;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media (min-width: 1200px) {
+  .PyramidContainer {
+    padding-top: 2rem;
+  }
 }

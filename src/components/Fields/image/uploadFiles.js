@@ -2,7 +2,7 @@ import request from 'superagent';
 
 export default (files, cb) => {
   const req = request
-    .post('/upload.php')
+    .post(`${SITE_URL}/admin/upload`)
     .accept('json');
 
   files.forEach((file) => {

@@ -1,7 +1,15 @@
 import React, { PropTypes } from 'react';
 import i18n from '../../../helpers/i18n';
 
-function videoPreview({ thumbnailUrl, url, title, authorName }) {
+function videoPreview({ thumbnailUrl, url, title, authorName, error }) {
+  if (typeof error !== 'undefined' && error.indexOf('404') >= 0) {
+    return (
+      <div>
+        {i18n.get('video_not_found')}
+      </div>
+    );
+  }
+
   return (
     <div className="PyramidVideoPreview">
       <a className="PyramidVideoPreview__Thumbnail" href={url} target="_blank" rel="noopener noreferrer">
@@ -41,6 +49,7 @@ videoPreview.propTypes = {
   title: PropTypes.string,
   authorName: PropTypes.string,
   thumbnailUrl: PropTypes.string,
+  error: PropTypes.string,
 };
 
 export default videoPreview;

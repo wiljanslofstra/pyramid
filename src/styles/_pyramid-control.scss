@@ -2,15 +2,14 @@
   @include clearfix;
   background: $pyramid-control-bar-background;
   border-radius: $pyramid-border-radius $pyramid-border-radius 0 0;
-  border-bottom: $pyramid-control-bar-border;
+  font-size: 15px;
 }
 
 .PyramidControl__Controls {
   float: right;
   font-size: 0;
-  border-left: 1px solid $pyramid-base-color;
   padding: $pyramid-controls-padding;
-  background: $pyramid-controls-background;
+  background: $pyramid-control-bar-background;
 }
 
 .PyramidControl__Control {
@@ -19,8 +18,8 @@
   color: $pyramid-controls-text-color;
 
   display: inline-block;
-  font-size: 1rem;
-  padding: $pyramid-control-padding;
+  font-size: 15px;
+  padding: 12px 8px;
   cursor: pointer;
   user-select: none;
 
@@ -37,7 +36,7 @@
 
 .PyramidControl__Title {
   position: relative;
-  padding: 1rem;
+  padding: 12px 15px;
   float: left;
 
   .has-icon & {

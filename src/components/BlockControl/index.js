@@ -13,6 +13,7 @@ function BlockControl({ title, moveUp, moveDown, removeBlock, index, connectDrag
           className="PyramidControl__Control PyramidControl__Control--Remove"
           onClick={() => removeBlock(index)}
           title={i18n.get('remove')}
+          type="button"
         >
           <i className="fa fa-times" />
         </button>
@@ -21,6 +22,7 @@ function BlockControl({ title, moveUp, moveDown, removeBlock, index, connectDrag
           className="PyramidControl__Control PyramidControl__Control--Up"
           onClick={() => moveUp(index)}
           title={i18n.get('move_up')}
+          type="button"
         >
           <i className="fa fa-chevron-up" />
         </button>
@@ -29,6 +31,7 @@ function BlockControl({ title, moveUp, moveDown, removeBlock, index, connectDrag
           className="PyramidControl__Control PyramidControl__Control--Down"
           onClick={() => moveDown(index)}
           title={i18n.get('move_down')}
+          type="button"
         >
           <i className="fa fa-chevron-down" />
         </button>
